@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\ProdukController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\KategoriProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +20,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::middleware('auth')->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'dashboard']);
+        //kategori produk
+        Route::get('/kategori-produk', [KategoriProdukController::class, 'kategori_produk']);
+        Route::post('/submit-kategori-produk', [KategoriProdukController::class, 'submit']);
+        Route::get('/edit-kategori-produk/{id}', [KategoriProdukController::class, 'edit']);
+        Route::put('/update-kategori-produk/{id}', [KategoriProdukController::class, 'update']);
+        Route::put('/delete-kategori-produk/{id}', [KategoriProdukController::class, 'delete']);
+        //produk
+        Route::get('/produk', [ProdukController::class, 'produk']);
+        Route::post('/submit-produk', [ProdukController::class, 'submit']);
+        Route::get('/edit-produk/{id}', [ProdukController::class, 'edit']);
+        Route::put('/update-produk/{id}', [ProdukController::class, 'update']);
+        Route::put('/delete-produk/{id}', [ProdukController::class, 'delete']);
+        Route::delete('/delete-gambar-produk/{id}/', [ProdukController::class, 'delete_gambar_produk']);
+        Route::get('/layanan-kami', [ProdukController::class, 'layanan_kami']);
+        });
+});
+
+require __DIR__.'/auth.php';
