@@ -139,4 +139,10 @@ class ProdukController extends Controller
          }
         return response()->json(['success'=>'Gambar Berhasil Dihapus.']);
     }
+
+    public function frontend_produk(){
+        $kategori = KategoriProduk::with('produk')->where('aktif',1)->get();
+        $produk = Produk::with('kategori_produk')->get();
+        return view('Frontend.Pages.produk',compact('produk','kategori'));
+    }
 }

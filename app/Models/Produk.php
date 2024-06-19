@@ -13,7 +13,8 @@ class Produk extends Model
     {
         return $this->hasMany(GambarProduk::class);
     }
-    public function kategoriproduk()
+    
+    public function kategori_produk()
     {
         return $this->belongsTo(KategoriProduk::class);
     }

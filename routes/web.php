@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -17,9 +18,14 @@ use App\Http\Controllers\Admin\KategoriProdukController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+Route::get('/', [BerandaController::class,'beranda'])->name('beranda');
+Route::get('layanan', function () {return view('Frontend.Pages.layanan');})->name('layanan');
+Route::get('produk', [ProdukController::class,'frontend_produk'])->name('produk');
 
 Route::middleware('auth')->group(function () {
     Route::prefix('admin')->group(function () {
