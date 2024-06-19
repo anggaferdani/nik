@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+nav{
+    position: fixed !important;
+    top: 0;
+    z-index: 99;
+    width: 100% !important;
+    font-family: "Poppins", sans-serif;
+    background-color: #1A3150 !important;
+}
+.nik-logo{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+.nav-link{
+    color: white;
+    font-weight: 300;
+}
+.nav-link:hover{
+    color: #00E0FF !important;
+}
+.nav-link.active{
+    color: #00E0FF !important;
+    font-weight: bold !important;
+}
+
+.navbar-toggler{
+    border: 1px solid white !important;
+    color: white !important;
+}
+.navbar-toggler-icon{
+    color: white !important;
+}
+
+
+.btn-login{
+    padding: .25rem 2rem !important;
+    border: none !important;
+    border-radius: 5%;
+}
+.rgb-red{
+    background: hsla(358, 86%, 45%, 1);
+    background: linear-gradient(0deg, hsla(358, 86%, 45%, 1) 0%, hsla(357, 87%, 24%, 1) 100%);   
+    background: -moz-linear-gradient(0deg, hsla(358, 86%, 45%, 1) 0%, hsla(357, 87%, 24%, 1) 100%);
+    background: -webkit-linear-gradient(0deg, hsla(358, 86%, 45%, 1) 0%, hsla(357, 87%, 24%, 1) 100%);
+}
+
+
+@media only screen and (max-width: 992px) {
+    .nik-logo{
+        width: 75%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .deskripsi-layanan p{
+        width: 100% !important;
+    }
+}

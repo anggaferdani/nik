@@ -1,0 +1,46 @@
+#pages-layanan{
+    background-color: #1C4172;
+    overflow: hidden;
+padding-top: 7rem;
+}
+
+#top-content{
+    margin: 3rem 0 7rem 0;
+}
+
+
+/* image blur */    
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.image-blur {
+    display: block;
+    width: 100%; /* Sesuaikan lebar gambar sesuai kebutuhan */
+    height: auto; /* Sesuaikan tinggi gambar sesuai kebutuhan */
+}
+
+.image-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    box-shadow: 
+        -5px -20px 50px 50px rgba(28, 65, 114, 1), 
+        inset -5px -20px 75px 75px rgba(28, 65, 114, 1); /* Efek blur inset berwarna biru */
+    filter: blur(10px);
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .image-container::after {
+        box-shadow: 
+            -5px -20px 50px 50px rgba(28, 65, 114, .8), 
+            inset -5px -20px 75px 75px rgba(28, 65, 114, .8); /* Efek blur inset berwarna biru */
+    }
+}
+

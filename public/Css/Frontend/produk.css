@@ -1,0 +1,27 @@
+.option{
+    background-color: #1A3150;
+}
+
+
+.option-2{
+    display: flex;
+    justify-content: center;
+}
+.optional{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 50%;
+}
+.btn-option{
+    border: none !important;
+    color: white !important;
+}
+
+
+@media only screen and (max-width: 992px) {
+    .optional{
+        width: 80%;
+    }
+}

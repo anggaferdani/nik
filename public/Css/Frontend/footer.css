@@ -1,0 +1,17 @@
+.footer{
+    background-color: #1C4172;
+}
+.btn-email{
+    background-color: #004DE1;
+    color: white;
+}
+
+.license{
+    background-color: #1A3150;
+}
+
+.column-klien img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
