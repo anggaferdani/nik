@@ -21,86 +21,95 @@
                 <a href=""><button class="btn-nik rgb-blue text-white" type="submit">Lorem ipsum.</button></a>
             </div>
         </div>
+        <div class="button-down text-center">
+            <h1><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="white" d="M9 4h6v8h4.84L12 19.84L4.16 12H9z"/></svg></h1>
+            <span class="text-white">SCROLL DOWN</span>
+        </div>
     </div>
 
+    
     <div id="animated-image" class="image-animasi hidden">
-        <img src="{{ asset('Images/animasi.png') }}" alt="Animated Image" style="width: 100%; height: 100%;">
+        <img src="{{ asset('Images/satellite-station.png') }}" alt="Animated Image">
     </div>
 
-    <div id="second-content" class="py-4">
-        <img class="ellipse" src="{{ asset('Images/ellipse-second.png') }}" alt="">
+    <div id="second-content">
+        <img class="ellipse d-none" src="{{ asset('Images/ellipse-second.png') }}" alt="">
         <div class="container">
             
-            <div class="text-white text-center" id="sc-content">
-                <img class="mb-5" src="{{ asset('Images/satellite-station.png') }}" alt="">
-                <h3>SIAPA KAMI?</h3>
-                <p>Perusahaan kami berpengalaman menyediakan solusi dan perangkat dibidang telekomunikasi satelit dan navigasi laut dengan membawa beberapa merek ternama. Sebagai distributor resmi dari Thuraya, KODEN, dan beberapa brand lainnya, kami memastikan bahwa setiap produk yang kami jual adalah produk asli dan berkualitas tinggi...</p>
-                <p class="red my-3">Selengkapnya>></p>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-10 my-lg-0 my-3">
-                    <div class="border-cyan p-4 text-white">
-                        <div class="d-flex align-items-center justify-content-between w-100  mb-3">
-                            <div class="text-start" id="judul-visi">
-                                <h5 class="cyan fw-bold">VISI SATELIT</h5>
-                                <h5 class="cyan fw-bold">STATION</h5>
-                            </div>
-                            <img class="rotate h-25" src="{{ asset('Images/panah.png')}}" alt="">
-                        </div>
-                        <p class="fw-200">Menjadi pemimpin terkemuka dalam layanan konektivitas satelit dan alat navigasi kapal, menjadi pilihan utama pelanggan untuk solusi komunikasi dan navigasi yang handal dan inovatif di Indonesia.</p>
+            <div class="isi-second-content">
+                <div class="text-white text-center" id="sc-content">
+                    <img class="mb-5 satellite-image" src="{{ asset('Images/satellite-station.png') }}" alt="">
+                    <div class="">
+                        <h3>SIAPA KAMI?</h3>
+                    <p>Perusahaan kami berpengalaman menyediakan solusi dan perangkat dibidang telekomunikasi satelit dan navigasi laut dengan membawa beberapa merek ternama. Sebagai distributor resmi dari Thuraya, KODEN, dan beberapa brand lainnya, kami memastikan bahwa setiap produk yang kami jual adalah produk asli dan berkualitas tinggi...</p>
+                    <p class="red my-3">Selengkapnya>></p>
                     </div>
                 </div>
-                <div class="col-lg-8 col-10" id="grid-second-content">
-                    <div class="grid-visi-satelit">
+    
+                <div class="row justify-content-center ">
+                    <div class="col-lg-4 col-10 my-lg-0 my-3">
                         <div class="border-cyan p-4 text-white">
-                            <div class="d-flex justify-content-start w-100">
-                                <img class="w-30" src="{{ asset('Images/panah.png')}}" alt="">
+                            <div class="d-flex align-items-center justify-content-between w-100  mb-3">
+                                <div class="text-start" id="judul-visi">
+                                    <h5 class="cyan fw-bold">VISI SATELIT</h5>
+                                    <h5 class="cyan fw-bold">STATION</h5>
+                                </div>
+                                <img class="rotate h-25" src="{{ asset('Images/panah.png')}}" alt="">
                             </div>
-                            <p class="fw-200 text-end fw-bold">GOOD SOLUTION</p>
+                            <p class="fw-200">Menjadi pemimpin terkemuka dalam layanan konektivitas satelit dan alat navigasi kapal, menjadi pilihan utama pelanggan untuk solusi komunikasi dan navigasi yang handal dan inovatif di Indonesia.</p>
                         </div>
                     </div>
-                    <div class="grid-visi-satelit">
-                        <div class="border-cyan p-4 text-white">
-                            <div class="d-flex justify-content-start w-100">
-                                <img class="w-30" src="{{ asset('Images/panah.png')}}" alt="">
-                            </div>
-                            <p class="fw-200 text-end fw-bold">CUSTOMER FIRST</p>
-                        </div>
-                    </div>
-                    <div class="grid-visi-satelit">
-                        <div class="p-3 text-white">
-                            <div class="" id="judul-misi">
-                                <h5 class="cyan fw-bold text-start">MISI SATELIT</h5>
-                                <h5 class="cyan fw-bold text-center">STATION</h5>
-                            </div>
-                            <div class="d-flex justify-content-end w-100 mt-2">
-                                <img src="{{ asset('Images/panah.png')}}" alt="">
+                    <div class="col-lg-8 col-10" id="grid-second-content">
+                        <div class="grid-visi-satelit">
+                            <div class="border-cyan p-4 text-white">
+                                <div class="d-flex justify-content-start w-100">
+                                    <img class="w-30" src="{{ asset('Images/panah.png')}}" alt="">
+                                </div>
+                                <p class="fw-200 text-end fw-bold">GOOD SOLUTION</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-visi-satelit">
-                        <div class="border-cyan p-4 text-white">
-                            <div class="d-flex justify-content-start w-100">
-                                <img class="w-30" src="{{ asset('Images/panah.png')}}" alt="">
+                        <div class="grid-visi-satelit">
+                            <div class="border-cyan p-4 text-white">
+                                <div class="d-flex justify-content-start w-100">
+                                    <img class="w-30" src="{{ asset('Images/panah.png')}}" alt="">
+                                </div>
+                                <p class="fw-200 text-end fw-bold">CUSTOMER FIRST</p>
                             </div>
-                            <p class="fw-200 text-end fw-bold">SUSTAINABLE DEVELOPMENT</p>
                         </div>
-                    </div>
-                    <div class="grid-visi-satelit">
-                        <div class="border-cyan p-4 text-white">
-                            <div class="d-flex justify-content-start w-100">
-                                <img class="w-30" src="{{ asset('Images/panah.png')}}" alt="">
+                        <div class="grid-visi-satelit">
+                            <div class="p-3 text-white">
+                                <div class="" id="judul-misi">
+                                    <h5 class="cyan fw-bold text-start">MISI SATELIT</h5>
+                                    <h5 class="cyan fw-bold text-center">STATION</h5>
+                                </div>
+                                <div class="d-flex justify-content-end w-100 mt-2">
+                                    <img src="{{ asset('Images/panah.png')}}" alt="">
+                                </div>
                             </div>
-                            <p class="fw-200 text-end fw-bold">LOCAL MARKET LEADER</p>
                         </div>
-                    </div>
-                    <div class="grid-visi-satelit">
-                        <div class="border-cyan p-4 text-white">
-                            <div class="d-flex justify-content-start w-100">
-                                <img class="w-30" src="{{ asset('Images/panah.png')}}" alt="">
+                        <div class="grid-visi-satelit">
+                            <div class="border-cyan p-4 text-white">
+                                <div class="d-flex justify-content-start w-100">
+                                    <img class="w-30" src="{{ asset('Images/panah.png')}}" alt="">
+                                </div>
+                                <p class="fw-200 text-end fw-bold">SUSTAINABLE DEVELOPMENT</p>
                             </div>
-                            <p class="fw-200 text-end fw-bold">PARTNERSHIP</p>
+                        </div>
+                        <div class="grid-visi-satelit">
+                            <div class="border-cyan p-4 text-white">
+                                <div class="d-flex justify-content-start w-100">
+                                    <img class="w-30" src="{{ asset('Images/panah.png')}}" alt="">
+                                </div>
+                                <p class="fw-200 text-end fw-bold">LOCAL MARKET LEADER</p>
+                            </div>
+                        </div>
+                        <div class="grid-visi-satelit">
+                            <div class="border-cyan p-4 text-white">
+                                <div class="d-flex justify-content-start w-100">
+                                    <img class="w-30" src="{{ asset('Images/panah.png')}}" alt="">
+                                </div>
+                                <p class="fw-200 text-end fw-bold">PARTNERSHIP</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -220,15 +229,50 @@
         </div>
     </div>
 
-    {{-- <div id="top-content"></div>
+    {{-- <div id="top-content">
+        <div class="button-down text-center">
+            <h1><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="white" d="M9 4h6v8h4.84L12 19.84L4.16 12H9z"/></svg></h1>
+            <span class="text-white">SCROLL DOWN</span>
+        </div>
+    </div>
+    <div id="animated-image" class="image-animasi hidden">
+        <img src="{{ asset('Images/animasi.png') }}" alt="Animated Image" style="width: 100%; height: 100%;">
+    </div>
     <div id="second-content"></div>
     <div id="third-content"></div>
     <div id="forth-content"></div>
     <div id="fifth-content"></div> --}}
 
-
     <script>
-        
+        document.addEventListener('DOMContentLoaded', function() {
+    var scrollButton = document.querySelector('.button-down');
+    var secondContent = document.getElementById('second-content');
+    var animatedImage = document.getElementById('animated-image');
+    var satellitImage = document.getElementById('sattelite-image');
+
+    scrollButton.addEventListener('click', function() {
+        // Menggeser jendela tampilan ke second-content
+        secondContent.scrollIntoView({ behavior: 'smooth' });
+
+        // Nonaktifkan scroll pada top-content setelah tombol diklik
+        document.getElementById('top-content').style.overflow = 'hidden';
+
+        // Menerapkan class untuk menampilkan animasi
+        animatedImage.classList.remove('hidden');
+        animatedImage.classList.add('image-animasi');
+
+        // Delay sebelum mengarahkan ke second-content (opsional)
+        setTimeout(function() {
+            // Tambahkan kelas untuk menampilkan gambar
+            // animatedImage.classList.add('hidden');
+            satellitImage.classList.add('visible-visible');
+        }, 1000); // Delay 1 detik (1000 milidetik)
+    });
+});
+
     </script>
+    
+    
+    
         
 @endsection
