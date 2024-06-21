@@ -185,6 +185,7 @@
 
     <div id="fifth-content" class="py-4">
         <div class="parent-grid-fifth">
+            @foreach ($produk as $item)
             <div class="grid-fifth">
                 <div class="border-cyan p-4 text-white d-flex justify-content-center">
                     <div class="gambar-layanan">
@@ -194,8 +195,8 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <h1>THURAYA</h1>
-                            <h3>FDU - XT</h3>
+                            <h1>{{$item->nama}}</h1>
+                            <h3>{{$item->kategori_produk->kategori}}</h3>
                             <div class="button d-flex justify-content-center gap-3 mt-3">
                                 <a href=""><button class="btn-pelajari solid-blue text-white" type="submit">Pelajari</button></a>
                                 <a href=""><button class="btn-beli border-white" type="submit">Beli</button></a>
@@ -204,25 +205,7 @@
                     </div>
                 </div>
             </div>
-            <div class="grid-fifth">
-                <div class="border-cyan2 p-4 text-white d-flex justify-content-center">
-                    <div class="gambar-layanan">
-                        <div class="image-wrapper-cyan2 text-center">
-                            <div class="d-flex justify-content-center">
-                                <img class="blur-bottom w-50" src="{{ asset('Images/samyung.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="text-center blue">
-                            <h1>SAMYUNG</h1>
-                            <h3>FDU - XT</h3>
-                            <div class="button d-flex justify-content-center gap-3 mt-3">
-                                <a href=""><button class="btn-pelajari solid-blue text-white" type="submit">Pelajari</button></a>
-                                <a href=""><button class="btn-beli border-blue" type="submit">Beli</button></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div class="d-flex justify-content-center my-5">
             <a href=""><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>

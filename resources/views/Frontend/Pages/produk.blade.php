@@ -29,22 +29,43 @@
         <div class="option-2 my-4">
             <div class="optional">
                 <button class="btn btn-option rgb-red" type="button">Semua</button>
-                <button class="btn btn-option" type="button">Thuraya</button>
-                <button class="btn btn-option" type="button">Koden</button>
-                <button class="btn btn-option" type="button">Inmarsat</button>
-                <button class="btn btn-option" type="button">Iridium</button>
-                <button class="btn btn-option" type="button">Starlink</button>
-                <button class="btn btn-option" type="button">Samyung Enc</button>
-                <button class="btn btn-option" type="button">Hytera</button>
-                <button class="btn btn-option" type="button">Icom</button>
-                <button class="btn btn-option" type="button">Sailor</button>
-                <button class="btn btn-option" type="button">Jrc</button>
+                @foreach ($kategori as $item)                    
+                <button class="btn btn-option" type="button">{{$item->kategori}}</button>
+                @endforeach
             </div>
         </div>
     </div>
 
 
     <div id="fifth-content" class="py-4">
+        <div class="parent-grid-fifth">
+            @foreach ($produk as $item)
+            <div class="grid-fifth">
+                <div class="border-cyan p-4 text-white d-flex justify-content-center">
+                    <div class="gambar-layanan">
+                        <div class="image-wrapper-cyan text-center">
+                            <div class="d-flex justify-content-center">
+                                <img class="blur-bottom w-50" src="{{ asset('Images/thuraya.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <h1>{{$item->nama}}</h1>
+                            <h3>{{$item->kategori_produk->kategori}}</h3>
+                            <div class="button d-flex justify-content-center gap-3 mt-3">
+                                <a href=""><button class="btn-pelajari solid-blue text-white" type="submit">Pelajari</button></a>
+                                <a href=""><button class="btn-beli border-white" type="submit">Beli</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        <div class="d-flex justify-content-center my-5">
+            <a href=""><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>
+        </div>
+    </div>
+    {{-- <div id="fifth-content" class="py-4">
         <div class="parent-grid-fifth">
             <div class="grid-fifth">
                 <div class="border-cyan p-4 text-white d-flex justify-content-center">
@@ -88,5 +109,5 @@
         <div class="d-flex justify-content-center my-5">
             <a href=""><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>
         </div>
-    </div>
+    </div> --}}
 @endsection
