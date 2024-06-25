@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Registered</title>
     <link rel="stylesheet" href="">
     <link rel="stylesheet" href="{{asset('../Css/Frontend/login.css')}}"> 
     <link rel="stylesheet" href="{{asset('../Css/Frontend/global.css')}}"> 
@@ -20,15 +20,18 @@
                             </h1>
                             <form class="text-white">
                                 <div class="mb-3">
-                                <input type="email" class="form-control input-login" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+                                    <input type="email" class="form-control input-login" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
                                 </div>
                                 <div class="mb-3">
-                                <input type="password" class="form-control input-login" id="exampleInputPassword1" placeholder="Password">
+                                    <input type="email" class="form-control input-login" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
                                 </div>
-                                <button type="submit" class="btn w-100 rgb-red text-white">Login</button>
+                                <div class="mb-3">
+                                    <input type="password" class="form-control input-login" id="exampleInputPassword1" placeholder="Password">
+                                </div>
+                                <button type="submit" class="btn w-100 rgb-red text-white">Register</button>
                                 <div class="registered d-flex justify-content-center gap-2 my-3">
-                                    <p>belum punya akun?</p>
-                                    <a href="{{ route('registered') }}" class="text-decoration-none text-danger fw-bold">Register</a>
+                                    <p>sudah punya akun?</p>
+                                    <a href="{{ route('login') }}" class="text-decoration-none text-danger fw-bold">Login</a>
                                 </div>
                             </form>
                         </div>

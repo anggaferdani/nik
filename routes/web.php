@@ -20,7 +20,10 @@ use App\Http\Controllers\Admin\KategoriProdukController;
 
 Route::get('/', function () {
     return view('Frontend.Pages.login');
-});
+})->name('login');
+Route::get('/registered', function () {
+    return view('Frontend.Pages.registered');
+})->name('registered');
 
 
 Route::get('/beranda', [BerandaController::class,'beranda'])->name('beranda');
