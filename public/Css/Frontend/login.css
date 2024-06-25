@@ -1,0 +1,25 @@
+.login{
+    background-image: url(../../Images/bg-login.png);
+    /* background-size: 100%; */
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
+.bg-login{
+    width: 10rem;
+}
+.form-login form button{
+    padding: .5rem !important;
+    border: none !important;
+}
+.input-login{
+    padding: .5rem !important;
+    background: none !important;
+    border: 2.5px solid white !important;
+    color: white !important;
+}
+.input-login::placeholder{
+    color: white !important;
+}

@@ -18,12 +18,12 @@ use App\Http\Controllers\Admin\KategoriProdukController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('Frontend.Pages.login');
+});
 
 
-Route::get('/', [BerandaController::class,'beranda'])->name('beranda');
+Route::get('/beranda', [BerandaController::class,'beranda'])->name('beranda');
 Route::get('layanan', function () {return view('Frontend.Pages.layanan');})->name('layanan');
 Route::get('produk', [ProdukController::class,'frontend_produk'])->name('produk');
 
