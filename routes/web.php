@@ -24,6 +24,9 @@ Route::get('/', function () {
 Route::get('/registered', function () {
     return view('Frontend.Pages.registered');
 })->name('registered');
+Route::get('/selengkapnya', function () {
+    return view('Frontend.Pages.selengkapnya');
+})->name('selengkapnya');
 
 
 Route::get('/beranda', [BerandaController::class,'beranda'])->name('beranda');
