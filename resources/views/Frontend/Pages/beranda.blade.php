@@ -191,7 +191,7 @@
                     <div class="gambar-layanan">
                         <div class="image-wrapper-cyan text-center">
                             <div class="d-flex justify-content-center">
-                                <img class="blur-bottom w-50" src="{{ asset('Images/thuraya.png') }}" alt="">
+                                <img class="blur-bottom w-50" src="{{ asset('storage/image/'.$item->gambarproduk[0]->gambar) }}" alt="">
                             </div>
                         </div>
                         <div class="text-center">
@@ -208,7 +208,7 @@
             @endforeach
         </div>
         <div class="d-flex justify-content-center my-5">
-            <a href=""><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>
+            <a href="/selengkapnya"><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>
         </div>
     </div>
 

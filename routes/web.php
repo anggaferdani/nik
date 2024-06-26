@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ProdukController;
+use App\Http\Controllers\SelengkapnyaController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\KategoriProdukController;
 
@@ -18,18 +20,15 @@ use App\Http\Controllers\Admin\KategoriProdukController;
 |
 */
 
-Route::get('/', function () {
-    return view('Frontend.Pages.login');
-})->name('login');
-Route::get('/registered', function () {
-    return view('Frontend.Pages.registered');
-})->name('registered');
-Route::get('/selengkapnya', function () {
-    return view('Frontend.Pages.selengkapnya');
-})->name('selengkapnya');
+Route::get('/login', [AuthController::class,'login'])->name('login');
+Route::get('/registered', [AuthController::class, 'register'])->name('registered');
+Route::post('/submit-register', [AuthController::class, 'submit_register']);
+Route::post('/proces-login', [AuthController::class, 'proces_login']);
+Route::post('/user-logout', [AuthController::class, 'logout']);
+Route::get('/selengkapnya', [SelengkapnyaController::class,'index'])->name('selengkapnya');
 
 
-Route::get('/beranda', [BerandaController::class,'beranda'])->name('beranda');
+Route::get('/', [BerandaController::class,'beranda'])->name('beranda');
 Route::get('layanan', function () {return view('Frontend.Pages.layanan');})->name('layanan');
 Route::get('produk', [ProdukController::class,'frontend_produk'])->name('produk');
 
