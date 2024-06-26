@@ -81,7 +81,12 @@ class AuthController extends Controller
             return redirect('/'); 
         }          
         
-        return redirect('/');
+        return back()->with([
+            'alert' => [
+                'type'=>'success',
+                'message'=>'Email dan Password Salah.',
+            ]
+        ]);;
     }
 
     public function logout(Request $request){
