@@ -38,19 +38,11 @@
                                 <h4>Login</h4>
                             </div>
                             <div class="card-body">
-                                @if ($errors->has('email') || $errors->has('password'))
-                                <div class="alert alert-danger alert-dismissible text-center fade show" role="alert">
-                                    <strong>Silahkan Cek Ulang Email dan Password anda!</strong>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                @elseif(session('pesan'))
-                                <div class="alert alert-danger alert-dismissible text-center fade show" role="alert">
-                                    <strong>{{ session('pesan') }}</strong>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                                @if(session('pesan'))
+                                
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong>{{session('pesan')}}</strong>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                                 @endif
                                 <form method="POST" action="/login-store" class="needs-validation"
