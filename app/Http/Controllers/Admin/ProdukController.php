@@ -6,10 +6,10 @@ use App\Models\Produk;
 use App\Models\GambarProduk;
 use Illuminate\Http\Request;
 use App\Models\KategoriProduk;
+use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
-use Yajra\DataTables\Facades\Datatables;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Admin\ProdukController;
 
@@ -20,7 +20,7 @@ class ProdukController extends Controller
         // dd($data[0]->deskripsi);
         if (request()->ajax()) {
             $data = Produk::with('gambarproduk')->where('aktif',1)->get();
-            return Datatables::of($data)->make(true);
+            return DataTables::of($data)->make(true);
         }
 
         return view('admin.produk',compact('kategori'));

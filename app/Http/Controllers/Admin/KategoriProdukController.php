@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Models\KategoriProduk;
-use Yajra\DataTables\Facades\Datatables;
+use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
@@ -13,7 +13,7 @@ class KategoriProdukController extends Controller
     public function kategori_produk(){
         if (request()->ajax()) {
             $data = KategoriProduk::where('aktif',1)->get();
-            return Datatables::of($data)->make(true);
+            return DataTables::of($data)->make(true);
         }
 
         return view('admin.kategori_produk');
