@@ -27,6 +27,9 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $user = User::where('email', $request->email)->first();
+        if ($user == null) {
+            return redirect()->back()->with(['pesan' => 'Email Tidak ditemukan.']);            
+        }
         if ($user->aktif == 5) {
                 $request->authenticate();
                 $request->session()->regenerate();
