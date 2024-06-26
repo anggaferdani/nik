@@ -70,9 +70,6 @@ class AuthController extends Controller
     }
 
     public function proces_login(Request $request){
-        if (Auth::check()) {
-            return redirect('/');
-        }
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
