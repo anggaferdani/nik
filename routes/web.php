@@ -32,7 +32,7 @@ Route::get('/', [BerandaController::class,'beranda'])->name('beranda');
 Route::get('layanan', function () {return view('Frontend.Pages.layanan');})->name('layanan');
 Route::get('produk', [ProdukController::class,'frontend_produk'])->name('produk');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','admin'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'dashboard']);
         //kategori produk
