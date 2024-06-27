@@ -18,12 +18,20 @@
                             <h1 class="text-center mb-5">
                                 <img class="bg-login" src="{{ asset('Images/logonik-hd.png') }}" alt="">
                             </h1>
-                            <form class="text-white">
+                            @if (session('alert'))
+                            <div class="alert alert-{{session('alert')['type']}} alert-dismissible fade show" role="alert">
+                                <strong>{{session('alert')['message']}}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            @endif
+                        
+                            <form class="text-white" action="/proces-login" method="POST">
+                                @csrf
                                 <div class="mb-3">
-                                <input type="email" class="form-control input-login" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+                                <input type="email" name="email" class="form-control input-login" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email">
                                 </div>
                                 <div class="mb-3">
-                                <input type="password" class="form-control input-login" id="exampleInputPassword1" placeholder="Password">
+                                <input type="password" name="password" class="form-control input-login" id="exampleInputPassword1" placeholder="Password">
                                 </div>
                                 <button type="submit" class="btn w-100 rgb-red text-white">Login</button>
                                 <div class="registered d-flex justify-content-center gap-2 my-3">

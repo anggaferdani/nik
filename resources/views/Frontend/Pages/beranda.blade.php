@@ -182,6 +182,7 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
         
         
             <div id="fifth-content" class="py-4">
@@ -203,6 +204,45 @@
                                         <a href=""><button class="btn-beli border-white" type="submit">Beli</button></a>
                                     </div>
                                 </div>
+=======
+        </div>
+    </div>
+
+    <div id="forth-content">
+        <img  src="{{ asset('Images/bg-starlink.png') }}" alt="">
+        <div class="container">
+            <div class="starlink-desc">
+                <div class="text-starlink text-white">
+                    <h1>STARLINK</h1>
+                    <p>Produk terbaru dari STARLINK tersedia di kami</p>
+                </div>
+                <div class="button d-flex gap-3 mt-3">
+                    <a href=""><button class="btn-nik rgb-red text-white" type="submit">Lorem ipsum.</button></a>
+                    <a href=""><button class="btn-nik rgb-blue text-white" type="submit">Lorem ipsum.</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="fifth-content" class="py-4">
+        <div class="parent-grid-fifth">
+            @foreach ($produk as $item)
+            <div class="grid-fifth">
+                <div class="border-cyan p-4 text-white d-flex justify-content-center">
+                    <div class="gambar-layanan">
+                        <div class="image-wrapper-cyan text-center">
+                            <div class="d-flex justify-content-center">
+                                <img class="blur-bottom w-50" src="{{ asset('storage/image/'.$item->gambarproduk[0]->gambar) }}" alt="">
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <h1>{{$item->nama}}</h1>
+                            <h3>{{$item->kategori_produk->kategori}}</h3>
+                            <div class="button d-flex justify-content-center gap-3 mt-3">
+                                <a href=""><button class="btn-pelajari solid-blue text-white" type="submit">Pelajari</button></a>
+                                <a href=""><button class="btn-beli border-white" type="submit">Beli</button></a>
+>>>>>>> ff9ac9a2ec5374e3c9c49ab2fdb49f73dbf57607
                             </div>
                         </div>
                     </div>
@@ -212,6 +252,15 @@
                     <a href=""><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>
                 </div>
             </div>
+<<<<<<< HEAD
+=======
+            @endforeach
+        </div>
+        <div class="d-flex justify-content-center my-5">
+            <a href="/selengkapnya"><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>
+        </div>
+    </div>
+>>>>>>> ff9ac9a2ec5374e3c9c49ab2fdb49f73dbf57607
 
     {{-- <div id="top-content">
         <div class="button-down text-center">

@@ -23,7 +23,26 @@
       </ul>
       
         <div class="d-flex align-items-center gap-3" role="search">
-          <a href=""><button class="btn-login rgb-red text-white" type="submit">Login</button></a>
+          @if (Auth::user())
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{Auth::user()->name}}
+            </button>
+            <ul class="dropdown-menu">
+              <form method="POST" action="/user-logout">
+                @csrf
+                <li class="dropdown-item">
+                  <button type="submit" class="btn btn-danger"
+                  >
+                  Logout
+                </button>
+              </li>
+            </form>
+            </ul>
+          </div>
+          @else
+          <a href="/login"><button class="btn-login rgb-red text-white" type="submit">Login</button></a>
+          @endif
           <a href="">
             <h2 class="text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><path fill="currentColor" d="M216 64h-40a48 48 0 0 0-96 0H40a16 16 0 0 0-16 16v120a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16m-88-32a32 32 0 0 1 32 32H96a32 32 0 0 1 32-32m88 168H40V80h40v16a8 8 0 0 0 16 0V80h64v16a8 8 0 0 0 16 0V80h40Z"/></svg>
