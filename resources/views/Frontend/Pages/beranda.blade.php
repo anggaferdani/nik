@@ -203,20 +203,12 @@
                                         <a href=""><button class="btn-beli border-white" type="submit">Beli</button></a>
                                     </div>
                                 </div>
-                    </div>
-                </div>
-
-    
                             </div>
                         </div>
                     </div>
                     @endforeach
                 </div>
-                {{-- <div class="d-flex justify-content-center my-5">
-                    <a href=""><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>
-                </div> --}}
             </div>
-        </div>
         <div class="d-flex justify-content-center my-5">
             <a href="/selengkapnya"><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>
         </div>
