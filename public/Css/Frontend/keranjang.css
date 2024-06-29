@@ -1,0 +1,97 @@
+#keranjang{
+    margin-top: 7rem !important;
+}
+
+.wishlist a{
+    text-decoration: none !important;
+    color: white !important;
+    font-weight: 200;
+}
+
+
+input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+}
+
+.hr{
+    margin: 1rem 0;
+    color: inherit;
+    border: 0;
+    border-top: 2px solid white !important;
+    opacity: 1;
+}
+
+
+.form-check-input{
+    border: 2px solid white !important;
+    background: none !important;
+}
+
+.border-order{
+    height: 100%;
+    box-shadow: 0px 0px 20px 4px rgba(255,255,255,0.5) inset;
+    -webkit-box-shadow: 0px 0px 20px 4px rgba(255,255,255,0.5) inset;
+    -moz-box-shadow: 0px 0px 20px 4px rgba(255,255,255,0.5) inset;
+    border-radius: 10px;
+}
+.border-order img{
+    height: 5rem;
+    width: 5rem;
+    object-fit: contain;
+}
+
+.tulis-catatan{
+    background: none !important;
+    border: none !important;
+    width: 35% !important;
+}
+.tulis-catatan::placeholder{
+    color: white !important;
+    font-weight: 200;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+  }
+
+  .quantity button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .25rem;
+    border-radius: 50%;
+    border: 2px solid white !important;
+    background: none !important;
+    color: white !important;
+  }
+  .input-box{
+    width: 30px;
+    background: none !important;
+    text-align: center;
+    border: none !important;
+    color: white !important;
+  }
+  .input-box:focus{
+    outline: none !important;
+  }
+
+
+  .par-ringkasan-belanja{
+    border: 2px solid cyan !important;
+    height: max-content;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+
+
+  .btn-pesan-sekarang{
+    border: none !important;
+    padding: .5rem .25rem !important;
+    border-radius: 4px !important;
+    color: black !important;
+    font-weight: 500 !important;
+    width: 100%;
+  }
+  

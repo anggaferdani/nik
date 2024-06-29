@@ -35,14 +35,14 @@
             <div class="isi-second-content">
                 <div class="text-white text-center" id="sc-content">
                     <img class="mb-5 satellite-image" src="{{ asset('Images/satellite-station.png') }}" alt="">
-                    {{-- <div class="">
+                    <div class="">
                         <h3>SIAPA KAMI?</h3>
                     <p>Perusahaan kami berpengalaman menyediakan solusi dan perangkat dibidang telekomunikasi satelit dan navigasi laut dengan membawa beberapa merek ternama. Sebagai distributor resmi dari Thuraya, KODEN, dan beberapa brand lainnya, kami memastikan bahwa setiap produk yang kami jual adalah produk asli dan berkualitas tinggi...</p>
                     <p class="red my-3">Selengkapnya>></p>
-                    </div> --}}
+                    </div>
                 </div>
     
-                {{-- <div class="row justify-content-center ">
+                <div class="row justify-content-center ">
                     <div class="col-lg-4 col-10 my-lg-0 my-3">
                         <div class="border-cyan p-4 text-white">
                             <div class="d-flex align-items-center justify-content-between w-100  mb-3">
@@ -108,7 +108,7 @@
                             </div>
                         </div>
                     </div>
-                </div> --}}
+                </div>
             </div>
         </div>
     </div>
