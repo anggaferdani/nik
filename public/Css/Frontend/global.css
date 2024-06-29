@@ -1,11 +1,20 @@
 .cyan{
     color: #00E0FF;
 }
+.bg-cyan{
+    background-color: #00E0FF;
+}
 .red{
     color: #D81018;
 }
+.bg-red{
+    background-color: #D81018;
+}
 .blue{
     color: #1A3150;
+}
+.br-5{
+    border-radius: 5px;
 }
 
 .hr-white {

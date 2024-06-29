@@ -28,6 +28,7 @@ Route::post('/user-logout', [AuthController::class, 'logout']);
 Route::get('/selengkapnya', [SelengkapnyaController::class,'index'])->name('selengkapnya');
 
 Route::get('/createorder', function () { return view('Frontend.Pages.createOrder'); });
+Route::get('/orderhistory', function () { return view('Frontend.Pages.orderHistory'); });
 
 Route::get('/', [BerandaController::class,'beranda'])->name('beranda');
 Route::get('layanan', function () {return view('Frontend.Pages.layanan');})->name('layanan');

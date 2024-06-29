@@ -1,0 +1,31 @@
+.daftar-order{
+    margin-top: 7rem;
+    margin-bottom: 2rem !important;
+}
+.border-order{
+    height: 100%;
+    box-shadow: 0px 0px 20px 4px rgba(255,255,255,0.5) inset;
+    -webkit-box-shadow: 0px 0px 20px 4px rgba(255,255,255,0.5) inset;
+    -moz-box-shadow: 0px 0px 20px 4px rgba(255,255,255,0.5) inset;
+    border-radius: 10px;
+}
+
+.left-for img{
+    height: 5rem;
+    width: 5rem;
+    object-fit: contain;
+}
+
+.foreach-daftar-order{
+    border: 1px solid white;
+    padding: 1rem;
+    border-radius: 5px;
+}
+.right-for{
+    height: 100%;
+    padding: 1rem;
+    border-left: 1px solid white;
+}
+.right-for{
+    line-height: 150%;
+}
