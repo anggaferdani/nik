@@ -29,7 +29,7 @@ Route::get('/selengkapnya', [SelengkapnyaController::class,'index'])->name('sele
 
 Route::get('/createorder', function () { return view('Frontend.Pages.createOrder'); });
 Route::get('/orderhistory', function () { return view('Frontend.Pages.orderHistory'); })->name('orderhistory');
-Route::get('/keranjang', function () { return view('Frontend.Pages.keranjang'); })->name('orderhistory');
+Route::get('/keranjang', function () { return view('Frontend.Pages.keranjang'); })->name('keranjang');
 
 Route::get('/', [BerandaController::class,'beranda'])->name('beranda');
 Route::get('layanan', function () {return view('Frontend.Pages.layanan');})->name('layanan');

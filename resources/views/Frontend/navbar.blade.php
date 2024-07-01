@@ -20,6 +20,9 @@
           <li class="nav-item">
               <a class="nav-link {{ request()->routeIs('produk') ? 'active' : '' }}" href="{{ route('produk') }}">Produk</a>
           </li>
+          <li class="nav-item">
+              <a class="nav-link {{ request()->routeIs('orderhistory') ? 'active' : '' }}" href="{{ route('orderhistory') }}">Order History</a>
+          </li>
       </ul>
       
         <div class="d-flex align-items-center gap-3" role="search">

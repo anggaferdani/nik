@@ -23,10 +23,10 @@
         </div>
     </div>
 
-{{--     
+    
     <div id="animated-image" class="image-animasi1">
         <img src="{{ asset('Images/animasi-transparan.png') }}" alt="Animated Image">
-    </div> --}}
+    </div>
     
     <div id="second-content" class="">
         <img class="ellipse d-none" src="{{ asset('Images/ellipse-second.png') }}" alt="">
@@ -202,11 +202,11 @@
             </div>
             @endforeach
         </div>
+        <div class="d-flex justify-content-center my-5">
+            <a href="/selengkapnya"><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>
+        </div>
     </div>
 
-    <div class="d-flex justify-content-center my-5">
-        <a href="/selengkapnya"><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>
-    </div>
 
     {{-- <div id="top-content">
         <div class="button-down text-center">
