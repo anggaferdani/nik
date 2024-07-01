@@ -51,8 +51,8 @@
                             <h1>{{ $item->nama }}</h1>
                             <h3>{{ $item->kategori_produk->kategori }}</h3>
                             <div class="button d-flex justify-content-center gap-3 mt-3">
-                                <a href=""><button class="btn-pelajari solid-blue text-white" type="submit">Pelajari</button></a>
-                                <a href=""><button class="btn-beli border-white" type="submit">Beli</button></a>
+                                <a href="/detail-produk/{{$item->id}}"><button class="btn-pelajari solid-blue text-white" type="submit">Pelajari</button></a>
+                                <a href="/keranjang"><button class="btn-beli border-white" type="submit">Beli</button></a>
                             </div>
                         </div>
                     </div>

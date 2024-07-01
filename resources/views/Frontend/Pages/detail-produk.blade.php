@@ -15,11 +15,10 @@
 
         <div id="bottom-content" class="my-5">
             {{-- <img class="ellipse-blur" src="{{ asset('Images/ellipse-blur.png') }}" alt=""> --}}
-            @foreach ($data as $item)
             <div class="row align-items-center justify-content-lg-start justify-content-center my-xl-3 my-5">
                 <div class="col-lg-7 col-12 d-flex justify-content-lg-start justify-content-center my-lg-0 my-3">
                     <div class="image-container w-80">
-                        <img class="image-blur" src="{{ asset('storage/image/'.$item->gambarproduk[0]->gambar) }}" alt="kapal">
+                        <img class="image-blur" src="{{ asset('storage/image/'.$data->gambarproduk[0]->gambar) }}" alt="kapal">
                     </div>
                 </div>
                 <div class="col-lg-4 col-9">
@@ -27,15 +26,14 @@
                         <h2>
                             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" d="M0 7h16v1H0z"/></svg>
                         </h2>
-                        <p>{{$item->kategori_produk->kategori}}</p>
+                        <p>{{$data->kategori_produk->kategori}}</p>
                     </div>
                     <div class="text-white text-lg-start text-center">
-                        <h2 class="my-3">{{$item->nama}}</h2>
-                        <p class="fw-200">{!! $item->deskripsi !!}</p>
+                        <h2 class="my-3">{{$data->nama}}</h2>
+                        <p class="fw-200">{!! $data->deskripsi !!}</p>
                     </div>
                 </div>
             </div>
-            @endforeach
 
         </div>
 

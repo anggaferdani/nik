@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Produk;
+use App\Models\Keranjang;
 use Illuminate\Http\Request;
 use App\Models\KategoriProduk;
 use Yajra\DataTables\DataTables;
@@ -62,6 +64,17 @@ class KategoriProdukController extends Controller
             $data->update([
                 'aktif'=> 0
             ]);
+            $produk = Produk::where('kategori_produk_id',$id)->get();
+            $getIdProduk = Produk::where('kategori_produk_id',$id)->pluck('id');
+            $produk->each->update([
+                'aktif'=>0
+            ]);
+
+            $keranjang = Keranjang::whereIn('produk_id',$getIdProduk)->get();
+            $keranjang->each->update([
+                'aktif'=>0
+            ]);
+
             DB::commit();
             } catch (\Throwable $th) {
             DB::rollback();

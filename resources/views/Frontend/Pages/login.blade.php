@@ -28,10 +28,10 @@
                             <form class="text-white" action="/proces-login" method="POST">
                                 @csrf
                                 <div class="mb-3">
-                                <input type="email" name="email" class="form-control input-login" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email">
+                                <input type="email" name="email" class="form-control input-login" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email" required>
                                 </div>
                                 <div class="mb-3">
-                                <input type="password" name="password" class="form-control input-login" id="exampleInputPassword1" placeholder="Password">
+                                <input type="password" name="password" class="form-control input-login" id="exampleInputPassword1" placeholder="Password" required>
                                 </div>
                                 <button type="submit" class="btn w-100 rgb-red text-white">Login</button>
                                 <div class="registered d-flex justify-content-center gap-2 my-3">

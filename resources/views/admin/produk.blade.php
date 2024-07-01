@@ -133,7 +133,7 @@
                         <textarea class="summernote-simple" name="deskripsi" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label>Gambar <small>(bisa pilih lebih dari satu gambar) </small><span
+                        <label>Gambar</small><span
                                 style="color: red">*</span></label>
                         <div class="input-images"></div>
                     </div>
@@ -149,6 +149,7 @@
     $('.input-images').imageUploader({
         imagesInputName: 'gambar',
         maxSize: 2 * 1024 * 1024,
+        maxFiles: 1
 
     });
     function formatNumber(input) {
