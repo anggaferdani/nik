@@ -12,7 +12,7 @@
           <li><a href="/admin/dashboard"><i class="fas fa-th-large"></i><span>Dashboard</span></a></li>
           <li><a href="/admin/kategori-produk"><i class="fas fa-th-large"></i><span>Kategori Produk</span></a></li>
           <li><a href="/admin/produk"><i class="fas fa-th-large"></i><span>Produk</span></a></li>
-          {{-- <li><a href="/admin/layanan-kami"><i class="fas fa-th-large"></i><span>Layanan Kami</span></a></li> --}}
+          <li><a href="/admin/order"><i class="fas fa-th-large"></i><span>Order</span></a></li>
       </ul>
       
     </aside>

@@ -9,6 +9,8 @@ use App\Models\KategoriProduk;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Admin\ProdukController;
@@ -144,5 +146,17 @@ class ProdukController extends Controller
         $kategori = KategoriProduk::with('produk')->where('aktif',1)->get();
         $produk = Produk::with('kategori_produk')->get();
         return view('Frontend.Pages.produk',compact('produk','kategori'));
+    }
+
+    public function detail_produk($encryptId){
+        $auth = Auth::user();
+        if ($auth != null) {
+            if ($auth->aktif == 5) {
+                Auth::logout();
+            }
+        }
+        $id = Crypt::decrypt($encryptId);
+        $data = Produk::find($id);
+        return view('Frontend.Pages.detail-produk',compact('data'));
     }
 }

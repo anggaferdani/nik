@@ -18,4 +18,12 @@ class Produk extends Model
     {
         return $this->belongsTo(KategoriProduk::class);
     }
+    public function keranjang()
+    {
+        return $this->hasMany(Keranjang::class);
+    }
+    public function order_item()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
 }

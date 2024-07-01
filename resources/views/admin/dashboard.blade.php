@@ -7,7 +7,7 @@
       <h4>Dashboard</h4>
     </div>
     <div class="card-body">
-      <p>dashboard</p>
+      <p>Selamat datang di dashboard admin</p>
     </div>
   </div>
 </div>

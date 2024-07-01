@@ -30,19 +30,19 @@
                     <form class="text-white" action="/submit-register" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <input type="text" name="name" class="form-control input-login" placeholder="Username">
+                            <input type="text" name="name" required class="form-control input-login" placeholder="Username">
                         </div>
                         <div class="mb-3">
-                            <input type="email" name="email" class="form-control input-login" id="exampleInputEmail1"
+                            <input type="email" name="email" required class="form-control input-login" id="exampleInputEmail1"
                                 aria-describedby="emailHelp" placeholder="Email">
                         </div>
                         <div class="mb-3">
-                            <input type="password" name="password" class="form-control input-login"
+                            <input type="password" name="password" required class="form-control input-login"
                                 id="exampleInputPassword1" placeholder="Password">
                         </div>
                         <div class="mb-3">
-                            <input type="password" name="password_confirmation" class="form-control input-login"
-                                id="exampleInputPassword1" placeholder="Password">
+                            <input type="password" name="password_confirmation" required class="form-control input-login"
+                                id="exampleInputPassword1" placeholder="Password Confirmation">
                         </div>
                         <button type="submit" class="btn w-100 rgb-red text-white">Register</button>
                         <div class="registered d-flex justify-content-center gap-2 my-3">
