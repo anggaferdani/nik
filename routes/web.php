@@ -31,7 +31,7 @@ Route::get('/selengkapnya', [SelengkapnyaController::class,'index'])->name('sele
 
 Route::middleware(['user'])->group(function () {
     Route::get('/create-order', [OrderController::class,'view']);
-    Route::get('/order-history', [OrderController::class,'history']);
+    Route::get('/order-history', [OrderController::class,'history'])->name('orderhistory');
     Route::get('/keranjang', [KeranjangController::class,'index']);
     Route::post('/submit-keranjang', [KeranjangController::class,'submit_keranjang']);
     Route::post('/submit-order', [OrderController::class,'submit']);

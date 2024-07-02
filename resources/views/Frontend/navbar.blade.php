@@ -23,7 +23,7 @@
           @if (Auth::user())
               
           <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('produk') ? 'active' : '' }}" href="/order-history">Order History</a>
+            <a class="nav-link {{ request()->routeIs('orderhistory') ? 'active' : '' }}" href="/order-history">Order History</a>
           </li>
           @endif
       </ul>
