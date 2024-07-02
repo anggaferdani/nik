@@ -29,7 +29,6 @@ Route::post('/proces-login', [AuthController::class, 'proces_login']);
 Route::post('/user-logout', [AuthController::class, 'logout']);
 Route::get('/selengkapnya', [SelengkapnyaController::class,'index'])->name('selengkapnya');
 Route::middleware(['user'])->group(function () {
-
     Route::get('/create-order', [OrderController::class,'view']);
     Route::get('/order-history', [OrderController::class,'history']);
     Route::get('/keranjang', [KeranjangController::class,'index']);
