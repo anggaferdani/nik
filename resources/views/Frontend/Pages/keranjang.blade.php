@@ -10,7 +10,7 @@
     <form action="/submit-keranjang" method="post">
         @csrf
         <div class="row justify-content-between px-md-0 px-2">
-            <div class="col-md-4 d-md-none d-block mb-3 par-ringkasan-belanja text-white">
+            {{-- <div class="col-md-4 d-md-none d-block mb-3 par-ringkasan-belanja text-white">
                 <div class="ringkasan-belanja d-flex gap-3 align-items-center justify-content-between">
                     <div>
                         <p class="fw-bold mb-2">Total Belanja</p>
@@ -22,7 +22,7 @@
                     </div>
                     <button type="submit" class="btn-pesan-sekarang bg-cyan w-25">Pesan</button>
                 </div>
-            </div>
+            </div> --}}
             <div class="col-md-7 col-12">
                 <div class="form-check text-white" style="padding-left: 0 !important">
                     <label class="form-check-label" for="flexCheckDefault">
@@ -85,16 +85,19 @@
                 @endforeach
 
             </div>
-            <div class="col-md-4 d-md-block d-none par-ringkasan-belanja text-white">
-                <div class="ringkasan-belanja">
-                    <p class="fw-bold">Total Belanja</p>
-                    <hr>
-                    <div class="d-flex align-items-center">
-                        <p>Rp. </p>
-                        <input type="text" id="total-harga" name="total_belanja" value="0"
-                            style="background: none; border:none; color:white" readonly>
+            <div class="col-md-4 mb-md-0 mb-3 par-ringkasan-belanja text-white">
+                <div class="ringkasan-belanja d-md-block d-flex align-items-center">
+                    <div>
+                        <p class="fw-bold">Total Belanja</p>
+                        <hr class="d-md-block d-none">
+                        <div class="d-flex align-items-center">
+                            <p>Rp. </p>
+                            <input type="text" id="total-harga" name="total_belanja" value="0"
+                                style="background: none; border:none; color:white" readonly>
+                        </div>
                     </div>
-                    <button type="submit" class="btn-pesan-sekarang bg-cyan mt-4">Pesan Sekarang</button>
+                    <button type="submit" class="btn-pesan-sekarang d-md-block d-none bg-cyan mt-4">Pesan Sekarang</button>
+                    <button type="submit" class="btn-pesan-sekarang bg-cyan w-25 d-md-none d-block ms-auto">Pesan</button>
                 </div>
             </div>
         </div>

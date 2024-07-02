@@ -93,4 +93,13 @@ input[type="checkbox"] {
     font-weight: 500 !important;
     width: 100%;
   }
+
+
+  @media (max-width: 768px) {
+    .par-ringkasan-belanja {
+        order: -1; /* Move .par-ringkasan-belanja to the top */
+        margin-bottom: 1rem; /* Add some margin below it */
+    }
+}
+
   
