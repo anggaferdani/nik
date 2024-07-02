@@ -14,10 +14,11 @@
 }
 
 #second-content {
+    padding-top: 0;
     position: relative;
     z-index: 2;
     top: 0;
-    width: 100%; /* Ensure it spans the full width */
+    width: 100%;    
 }
 
 #top-content .container{
@@ -43,17 +44,19 @@
 
 #animated-image img{
     position: fixed;
-    top: 0;
+    top: 0%;
     left: 0;
     width: 100%;
-    height: 120vh;
+    height: 100vh;
     object-fit: cover;
-    background: rgba(0, 0, 0, 0.5); 
+    /* background: rgba(0, 0, 0, 0.5);  */
     z-index: 50; 
     transform: scale(100);
-    animation: scaleAnimation 2s forwards;
+    /* animation: scaleAnimation 2s forwards; */
+    transition: transform 0.1s ease-out;
+    
 }
-@keyframes scaleAnimation {
+/* @keyframes scaleAnimation {
     0% {
         transform: scale(100) translateY(0);
     }
@@ -61,11 +64,21 @@
         transform: scale(1) translateY(0);
     }
     100% {
-        transform: scale(1) translateY(-7rem);
+        transform: scale(1) translateY(0);
     }
 }
+@keyframes scaleDownAnimation {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+    99%{
+        transform: scale(100) translateY(0);
+    }
+    100% {
+        transform: scale(100) translateY(0);
+    }
+} */
 
-/* Add a class to trigger the animation */
 .animate {
     display: block;
     animation: scaleAnimation 1s forwards;
@@ -76,14 +89,16 @@
 
 
     
-.visible {
+.image-animasi .visible {
     display: block; /* Ditampilkan */
+    animation: scaleAnimation 2s forwards;
 }
 .visible-visible {
     visibility: visible; /* Ditampilkan */
 }
-.hidden {
+.image-animasi .hidden {
     display: none; /* Disembunyikan */
+    animation: scaleDownAnimation 2s forwards;
 }
 
 
@@ -95,8 +110,9 @@
 
 
 
+
 #second-content{
-    padding-top: 7rem;
+    /* padding-top: 7rem; */
     background-color: #1A3150;
     width: 100%;
     height: max-content;

@@ -10,7 +10,7 @@
                 <h2>
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" d="M0 7h16v1H0z"/></svg>
                 </h2>
-                <p>Lorem ipsum dolor sit amet consectetur.</p>
+                <p class="">Lorem ipsum dolor sit amet consectetur.</p>
             </div>
             <div class="desc text-white text-sm-start text-center">
                 <h3 class="w-40 fw-bold my-3"> PENYEDIA PERANGKAT TELEKOMUNIKASI SATELIT DAN NAVIGASI LAUT </h3>
@@ -24,20 +24,21 @@
     </div>
 
     
-    <div id="animated-image" class="image-animasi1">
+    <div id="animated-image" class="image-animasi hidden">
         <img src="{{ asset('Images/animasi-transparan.png') }}" alt="Animated Image">
     </div>
-    
-    <div id="second-content" class="">
+
+    <div id="second-content" class="second-content">
         <img class="ellipse d-none" src="{{ asset('Images/ellipse-second.png') }}" alt="">
         <div class="container">
             
             <div class="isi-second-content">
-                <div class="text-white text-center" id="sc-content">
-                    <img class="mb-5 satellite-image" src="{{ asset('Images/satellite-station.png') }}" alt="">
+                <div class="text-white text-center">
+                    <img class="mb-5 satellite-image animate__animated animate__backInUp animate__delay-2s" src="{{ asset('Images/satellite-station.png') }}" alt="">
+                      
                     <div class="">
-                        <h3>SIAPA KAMI?</h3>
-                    <p>Perusahaan kami berpengalaman menyediakan solusi dan perangkat dibidang telekomunikasi satelit dan navigasi laut dengan membawa beberapa merek ternama. Sebagai distributor resmi dari Thuraya, KODEN, dan beberapa brand lainnya, kami memastikan bahwa setiap produk yang kami jual adalah produk asli dan berkualitas tinggi...</p>
+                        <h3 class="animate__animated animate__backInUp animate__delay-2s">SIAPA KAMI?</h3>
+                    <p class="">Perusahaan kami berpengalaman menyediakan solusi dan perangkat dibidang telekomunikasi satelit dan navigasi laut dengan membawa beberapa merek ternama. Sebagai distributor resmi dari Thuraya, KODEN, dan beberapa brand lainnya, kami memastikan bahwa setiap produk yang kami jual adalah produk asli dan berkualitas tinggi...</p>
                     <p class="red my-3">Selengkapnya>></p>
                     </div>
                 </div>
@@ -207,12 +208,7 @@
         </div>
     </div>
 
-    {{-- <div id="top-content">
-        <div class="button-down text-center">
-            <h1><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="white" d="M9 4h6v8h4.84L12 19.84L4.16 12H9z"/></svg></h1>
-            <span class="text-white">SCROLL DOWN</span>
-        </div>
-    </div>
+    {{-- <div id="top-content"></div>
     <div id="animated-image" class="image-animasi hidden">
         <img src="{{ asset('Images/animasi.png') }}" alt="Animated Image" style="width: 100%; height: 100%;">
     </div>
@@ -222,23 +218,45 @@
     <div id="fifth-content"></div> --}}
 
     
-    <script>
-        window.addEventListener('scroll', function() {
+   <script>
+            window.addEventListener('scroll', function() {
             var topContent = document.getElementById('top-content');
-            var secondContent = document.getElementById('second-content');
             var animatedImage = document.getElementById('animated-image');
-            var scrollY = window.scrollY;
-            var scrollPercentage = scrollY / topContent.offsetHeight;
-            var secondContentMiddle = secondContent.offsetTop + (secondContent.offsetHeight / 1000);
+            var sec = document.getElementById('second-content');
+            var animatedImg = animatedImage.querySelector('img');
+            
+            var topContentHeight = topContent.offsetHeight;
+            var scrollPosition = window.scrollY;
+            
+            // Calculate the 10% threshold
+            var threshold = topContentHeight * 0.1;
 
-            if (scrollPercentage >= 0.2) {
-            // if (scrollPercentage >= 0.2) {
+            // Calculate scale based on scroll position
+            var scaleValue = Math.max(1, 90 - (scrollPosition / topContentHeight * 100));
+            animatedImg.style.transform = `scale(${scaleValue})`;
+
+            // Check if top-content is scrolled past 10% and handle visibility
+            if (scrollPosition > threshold && scaleValue > 1) {
                 animatedImage.classList.remove('hidden');
+                animatedImage.classList.add('visible');
+                // sec.style.transform = 'translatey(-100%)';
             } else {
+                // sec.style.transform = 'translatey(0)';
+                animatedImage.classList.remove('visible');
                 animatedImage.classList.add('hidden');
             }
+
+            // Parallax effect for the background image
+            var parallaxSpeed = 0.5; // Adjust the speed as needed
+            topContent.style.backgroundPositionY = -(scrollPosition * parallaxSpeed) + 'px';
         });
-    </script>
+
+   </script>
+
+   <script>
+    
+   </script>
+    
     
     
         

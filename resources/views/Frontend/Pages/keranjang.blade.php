@@ -9,8 +9,21 @@
 <div class="container my-5" id="keranjang">
     <form action="/submit-keranjang" method="post">
         @csrf
-        <div class="row justify-content-between">
-            <div class="col-7">
+        <div class="row justify-content-between px-md-0 px-2">
+            <div class="col-md-4 d-md-none d-block mb-3 par-ringkasan-belanja text-white">
+                <div class="ringkasan-belanja d-flex gap-3 align-items-center justify-content-between">
+                    <div>
+                        <p class="fw-bold mb-2">Total Belanja</p>
+                        <div class="d-flex align-items-center ">
+                            <p>Rp. </p>
+                            <input type="text" id="total-harga" name="total_belanja" value="0"
+                                style="background: none; border:none; color:white" readonly>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-pesan-sekarang bg-cyan w-25">Pesan</button>
+                </div>
+            </div>
+            <div class="col-md-7 col-12">
                 <div class="form-check text-white" style="padding-left: 0 !important">
                     <label class="form-check-label" for="flexCheckDefault">
                         Pilih Produk
@@ -37,7 +50,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="text-white">
+                                <div class="text-white mt-md-0 mt-3 text-md-start text-center">
                                     <h5>{{$item->nama}}</h5>
                                     <p class="my-1">{{$item->kategori_produk->kategori}}</p>
                                     <h5 class="harga-produk" data-harga="{{$item->harga}}">Rp. {{$item->harga}}</h5>
@@ -72,12 +85,13 @@
                 @endforeach
 
             </div>
-            <div class="col-4 par-ringkasan-belanja text-white">
+            <div class="col-md-4 d-md-block d-none par-ringkasan-belanja text-white">
                 <div class="ringkasan-belanja">
                     <p class="fw-bold">Total Belanja</p>
                     <hr>
-                    <div class="">
-                        Rp. <input type="text" id="total-harga" name="total_belanja" value="0"
+                    <div class="d-flex align-items-center">
+                        <p>Rp. </p>
+                        <input type="text" id="total-harga" name="total_belanja" value="0"
                             style="background: none; border:none; color:white" readonly>
                     </div>
                     <button type="submit" class="btn-pesan-sekarang bg-cyan mt-4">Pesan Sekarang</button>

@@ -26,10 +26,10 @@
 
         @foreach ($data as $item)
             
-        <div class="row">
-            <div class="col-12">
+        <div class="row my-3">
+            <div class="col-xl-2 col-lg-3 col-sm-4 col-12 mb-sm-0 mb-3">
                 <div class="border-order p-4 text-white">
-                    <div class="gambar-layanan d-flex align-items-center">
+                    <div class="gambar-layanan d-flex align-items-center justify-content-center">
                         <div class="text-center">
                             <div class="d-flex justify-content-center">
                                 <img class="blur-bottom w-50" src="{{ asset('storage/image/'.$item->produk->gambarproduk[0]->gambar) }}"
@@ -39,49 +39,48 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-
-            <div class="col-12">
+            <div class="col-xl-10 col-lg-9 col-sm-8 col-12">
+                <div class="row">
+                    <div class="col-6">
+                        <label class="text-white">Nama Produk</label>
+                        <div class="form-order my-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control"  value="{{$item->produk->nama}}" readonly aria-label="Alamat Email Kamu"
+                                    required aria-describedby="button-addon2">
+                                <input type="hidden" class="form-control" name="produk_id[]"  value="{{$item->produk_id}}" readonly aria-label="Alamat Email Kamu"
+                                    required aria-describedby="button-addon2">
+                            </div>
+                        </div>
+                        <label class="text-white">Harga Produk</label>
+                        <div class="form-order my-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control"  value="{{$item->produk->harga}}" readonly aria-label="Alamat Email Kamu"
+                                    required aria-describedby="button-addon2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label class="text-white">Qty</label>
+                        <div class="form-order my-3">
+                            <div class="input-group">
+                                <input type="number" class="form-control" placeholder="Quantity" value="{{$item->qty}}" readonly aria-label="Alamat Email Kamu"
+                                    required aria-describedby="button-addon2">
+                            </div>
+                        </div>
+                        <label class="text-white">Total Harga</label>
+                        <div class="form-order my-3">
+                            <div class="input-group">
+                                <?php
+                                    $qty_x_harga = $item->qty * $item->produk->harga
+                                    ?>
+                                <input type="text" class="form-control" placeholder="Total" aria-label="Alamat Email Kamu"
+                                    readonly value="{{$qty_x_harga}}" required aria-describedby="button-addon2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
-                <label class="text-white">Nama Produk</label>
-                <div class="form-order my-3">
-                    <div class="input-group">
-                        <input type="text" class="form-control"  value="{{$item->produk->nama}}" readonly aria-label="Alamat Email Kamu"
-                            required aria-describedby="button-addon2">
-                        <input type="hidden" class="form-control" name="produk_id[]"  value="{{$item->produk_id}}" readonly aria-label="Alamat Email Kamu"
-                            required aria-describedby="button-addon2">
-                       
-                      
-                    </div>
-                </div>
-                <label class="text-white">Harga Produk</label>
-                <div class="form-order my-3">
-                    <div class="input-group">
-                        <input type="text" class="form-control"  value="{{$item->produk->harga}}" readonly aria-label="Alamat Email Kamu"
-                            required aria-describedby="button-addon2">
-                      
-                    </div>
-                </div>
-                <label class="text-white">Qty</label>
-                <div class="form-order my-3">
-                    <div class="input-group">
-                        <input type="number" class="form-control" placeholder="Quantity" value="{{$item->qty}}" readonly aria-label="Alamat Email Kamu"
-                            required aria-describedby="button-addon2">
-                      
-                    </div>
-                </div>
-                <label class="text-white">Total Harga</label>
-
-                <div class="form-order my-3">
-                    <div class="input-group">
-                        <?php
-                            $qty_x_harga = $item->qty * $item->produk->harga
-                            ?>
-                        <input type="text" class="form-control" placeholder="Total" aria-label="Alamat Email Kamu"
-                            readonly value="{{$qty_x_harga}}" required aria-describedby="button-addon2">
-                    </div>
-                </div>
+                
 
             </div>
         </div>
@@ -134,7 +133,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-danger">Buat Pesanan</button>
+        <button class="btn btn-danger d-block ms-auto">Buat Pesanan</button>
         </form>
     </div>
 
