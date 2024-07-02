@@ -20,6 +20,12 @@
           <li class="nav-item">
               <a class="nav-link {{ request()->routeIs('produk') ? 'active' : '' }}" href="{{ route('produk') }}">Produk</a>
           </li>
+          @if (Auth::user())
+              
+          <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('produk') ? 'active' : '' }}" href="/order-history">Order History</a>
+          </li>
+          @endif
       </ul>
       
         <div class="d-flex align-items-center gap-3" role="search">
@@ -43,7 +49,7 @@
           @else
           <a href="/login"><button class="btn-login rgb-red text-white" type="submit">Login</button></a>
           @endif
-          <a href="">
+          <a href="/keranjang">
             <h2 class="text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><path fill="currentColor" d="M216 64h-40a48 48 0 0 0-96 0H40a16 16 0 0 0-16 16v120a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16m-88-32a32 32 0 0 1 32 32H96a32 32 0 0 1 32-32m88 168H40V80h40v16a8 8 0 0 0 16 0V80h64v16a8 8 0 0 0 16 0V80h40Z"/></svg>
             </h2>
