@@ -34,16 +34,16 @@
             
             <div class="isi-second-content">
                 <div class="text-white text-center">
-                    <img class="mb-5 satellite-image animate__animated animate__backInUp animate__delay-2s" src="{{ asset('Images/satellite-station.png') }}" alt="">
+                    <img id="animationVisible1" class=" mb-5 satellite-image" src="{{ asset('Images/satellite-station.png') }}" alt="">
                       
-                    <div class="">
-                        <h3 class="animate__animated animate__backInUp animate__delay-2s">SIAPA KAMI?</h3>
-                    <p class="">Perusahaan kami berpengalaman menyediakan solusi dan perangkat dibidang telekomunikasi satelit dan navigasi laut dengan membawa beberapa merek ternama. Sebagai distributor resmi dari Thuraya, KODEN, dan beberapa brand lainnya, kami memastikan bahwa setiap produk yang kami jual adalah produk asli dan berkualitas tinggi...</p>
-                    <p class="red my-3">Selengkapnya>></p>
+                    <div class="" id="animationVisible2">
+                        <h3 class=" ">SIAPA KAMI?</h3>
+                        <p class=" ">Perusahaan kami berpengalaman menyediakan solusi dan perangkat dibidang telekomunikasi satelit dan navigasi laut dengan membawa beberapa merek ternama. Sebagai distributor resmi dari Thuraya, KODEN, dan beberapa brand lainnya, kami memastikan bahwa setiap produk yang kami jual adalah produk asli dan berkualitas tinggi...</p>
+                        <p class="red my-3">Selengkapnya>></p>
                     </div>
                 </div>
     
-                <div class="row justify-content-center ">
+                <div class="row justify-content-center" id="animationVisible3">
                     <div class="col-lg-4 col-10 my-lg-0 my-3">
                         <div class="border-cyan p-4 text-white">
                             <div class="d-flex align-items-center justify-content-between w-100  mb-3">
@@ -212,14 +212,17 @@
     <div id="animated-image" class="image-animasi hidden">
         <img src="{{ asset('Images/animasi.png') }}" alt="Animated Image" style="width: 100%; height: 100%;">
     </div>
-    <div id="second-content"></div>
-    <div id="third-content"></div>
+    <div id="second-content">non-visible</div>
+    <div id="third-content">animated-visible</div>
     <div id="forth-content"></div>
     <div id="fifth-content"></div> --}}
 
     
    <script>
             window.addEventListener('scroll', function() {
+            var animationVisible1 = document.getElementById('animationVisible1');
+            var animationVisible2 = document.getElementById('animationVisible2');
+            var animationVisible3 = document.getElementById('animationVisible3');
             var topContent = document.getElementById('top-content');
             var animatedImage = document.getElementById('animated-image');
             var sec = document.getElementById('second-content');
@@ -232,18 +235,48 @@
             var threshold = topContentHeight * 0.1;
 
             // Calculate scale based on scroll position
-            var scaleValue = Math.max(1, 90 - (scrollPosition / topContentHeight * 100));
+            var scaleValue = Math.max(1, 50 - (scrollPosition / topContentHeight * 55));
+            console.log(scaleValue)
             animatedImg.style.transform = `scale(${scaleValue})`;
 
             // Check if top-content is scrolled past 10% and handle visibility
             if (scrollPosition > threshold && scaleValue > 1) {
-                animatedImage.classList.remove('hidden');
                 animatedImage.classList.add('visible');
-                // sec.style.transform = 'translatey(-100%)';
+                animatedImage.classList.remove('hidden');
+                setTimeout(function() {
+                    animationVisible1.classList.add('non-visible');
+                    animationVisible2.classList.add('non-visible');
+                    animationVisible3.classList.add('non-visible');
+                    animationVisible1.classList.add('animated-none');
+                    animationVisible2.classList.add('animated-none');
+                    animationVisible3.classList.add('animated-none');
+                    
+                    animationVisible1.classList.remove('animated-visible');
+                    animationVisible2.classList.remove('animated-visible');
+                    animationVisible3.classList.remove('animated-visible');
+                    animationVisible1.classList.remove('slide-up');
+                    animationVisible2.classList.remove('slide-up');
+                    animationVisible3.classList.remove('slide-up');
+                }, 100); 
             } else {
-                // sec.style.transform = 'translatey(0)';
                 animatedImage.classList.remove('visible');
                 animatedImage.classList.add('hidden');
+                // Use a setTimeout to add a delay before adding the slide-up class
+                setTimeout(function() {
+                    animationVisible1.classList.remove('non-visible');
+                    animationVisible2.classList.remove('non-visible');
+                    animationVisible3.classList.remove('non-visible');
+                    animationVisible1.classList.remove('animated-none');
+                    animationVisible2.classList.remove('animated-none');
+                    animationVisible3.classList.remove('animated-none');
+                    
+                    animationVisible1.classList.add('animated-visible');
+                    animationVisible2.classList.add('animated-visible');
+                    animationVisible3.classList.add('animated-visible');
+                    animationVisible1.classList.add('slide-up');
+                    animationVisible2.classList.add('slide-up');
+                    animationVisible3.classList.add('slide-up');
+                }, 100); // Adjust the delay as needed
             }
 
             // Parallax effect for the background image
