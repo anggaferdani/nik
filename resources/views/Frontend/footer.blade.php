@@ -54,10 +54,10 @@
                 <p>Hytera</p>
             </div>
             <div class="col-md-4 col-sm-7 col-10 my-md-0 my-3">
-                <div class="input-group mb-3">
+                {{-- <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Alamat Email Kamu" aria-label="Alamat Email Kamu" aria-describedby="button-addon2">
                     <button class="btn btn-email" type="button" id="button-addon2">Subscribe</button>
-                </div>
+                </div> --}}
                 <div class="email-footer my-3 d-flex align-items-start gap-3">
                     <div class="icon">
                         <h4>
