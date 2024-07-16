@@ -16,7 +16,7 @@ class BerandaController extends Controller
                 Auth::logout();
             }
         }
-        $produk = Produk::with('gambarproduk','kategori_produk')->take(2)->get();
+        $produk = Produk::with('gambarproduk','kategori_produk')->where('aktif', 1)->take(2)->get();
         foreach ($produk as $key) {
             $key->encryptId = Crypt::encrypt($key->id);
         }

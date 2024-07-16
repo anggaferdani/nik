@@ -1,9 +1,9 @@
 @extends('Frontend.main')
 @section('title', 'produk')
-<link rel="stylesheet" href="{{asset('../Css/Frontend/beranda.css')}}"> 
-<link rel="stylesheet" href="{{asset('../Css/Frontend/produk.css')}}"> 
-<link rel="stylesheet" href="{{asset('../Css/Frontend/global.css')}}"> 
-    
+<link rel="stylesheet" href="{{asset('../Css/Frontend/beranda.css')}}">
+<link rel="stylesheet" href="{{asset('../Css/Frontend/produk.css')}}">
+<link rel="stylesheet" href="{{asset('../Css/Frontend/global.css')}}">
+
 @section('content')
 
     <div id="forth-content">
@@ -35,7 +35,7 @@
             </div>
         </div>
     </div>
-    
+
     <div id="fifth-content" class="py-4">
         <div class="parent-grid-fifth">
             @foreach ($produk as $item)
@@ -51,7 +51,7 @@
                             <h1>{{ $item->nama }}</h1>
                             <h3>{{ $item->kategori_produk->kategori }}</h3>
                             <div class="button d-flex justify-content-center gap-3 mt-3">
-                                <a href="/detail-produk/{{$item->id}}"><button class="btn-pelajari solid-blue text-white" type="submit">Pelajari</button></a>
+                                <a href="/detail-produk/{{$item->encryptId}}"><button class="btn-pelajari solid-blue text-white" type="submit">Pelajari</button></a>
                                 <a href="/keranjang"><button class="btn-beli border-white" type="submit">Beli</button></a>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
             <a href=""><button class="btn-pelajari mx-auto border-white" type="submit">Selengkapnya>></button></a>
         </div>
     </div>
-    
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -73,10 +73,10 @@
                 $('.btn-option').removeClass('rgb-red');
                 // Tambahkan class rgb-red ke tombol yang diklik
                 $(this).addClass('rgb-red');
-                
+
                 // Dapatkan kategori yang dipilih
                 var kategori = $(this).data('kategori');
-                
+
                 // Tampilkan/hilangkan produk berdasarkan kategori
                 if (kategori === 'all') {
                     $('.grid-fifth').show();
@@ -87,8 +87,8 @@
             });
         });
     </script>
-    
-    
+
+
 
 
 

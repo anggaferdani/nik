@@ -76,11 +76,12 @@ class OrderController extends Controller
     }
 
     public function history(){
-        $order = Order::with('order_item')->where('user_id',Auth::user()->id)->get();
+        $order = Order::with('order_item.produk.gambarproduk')->where('user_id',Auth::user()->id)->get();
         foreach ($order as $key) {
             # code...
             $key->total_bayar = OrderItem::where('order_id',$key->id)->sum('harga');
             $key->total_item = OrderItem::where('order_id',$key->id)->count();
+            $key->gambar = isset($key->order_item->first()->produk->gambarproduk->first()->gambar) ? $key->order_item->first()->produk->gambarproduk->first()->gambar : null;
         }
         // $total_bay
         return view('Frontend.Pages.orderHistory',compact('order'));

@@ -1,8 +1,8 @@
 @extends('Frontend.main')
 @section('title', 'beranda')
-<link rel="stylesheet" href="{{asset('../Css/Frontend/beranda.css')}}"> 
-<link rel="stylesheet" href="{{asset('../Css/Frontend/global.css')}}"> 
-    
+<link rel="stylesheet" href="{{asset('../Css/Frontend/beranda.css')}}">
+<link rel="stylesheet" href="{{asset('../Css/Frontend/global.css')}}">
+
 @section('content')
     <div id="top-content">
         <div class="container">
@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    
+
     <div id="animated-image" class="image-animasi hidden">
         <img src="{{ asset('Images/animasi-transparan.png') }}" alt="Animated Image">
     </div>
@@ -31,18 +31,18 @@
     <div id="second-content" class="second-content">
         <img class="ellipse d-none" src="{{ asset('Images/ellipse-second.png') }}" alt="">
         <div class="container">
-            
+
             <div class="isi-second-content">
                 <div class="text-white text-center">
                     <img id="animationVisible1" class=" mb-5 satellite-image" src="{{ asset('Images/satellite-station.png') }}" alt="">
-                      
+
                     <div class="" id="animationVisible2">
                         <h3 class=" ">SIAPA KAMI?</h3>
                         <p class=" ">Perusahaan kami berpengalaman menyediakan solusi dan perangkat dibidang telekomunikasi satelit dan navigasi laut dengan membawa beberapa merek ternama. Sebagai distributor resmi dari Thuraya, KODEN, dan beberapa brand lainnya, kami memastikan bahwa setiap produk yang kami jual adalah produk asli dan berkualitas tinggi...</p>
                         <p class="red my-3">Selengkapnya>></p>
                     </div>
                 </div>
-    
+
                 <div class="row justify-content-center" id="animationVisible3">
                     <div class="col-lg-4 col-10 my-lg-0 my-3">
                         <div class="border-cyan p-4 text-white">
@@ -124,7 +124,7 @@
                             <div class="image-wrapper">
                                 <img class="blur-bottom w-100" src="{{ asset('Images/kapal.png') }}" alt="kapal">
                             </div>
-                                
+
                             <div class="cyan-text d-flex align-items-center gap-2 cyan">
                                 <h2>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" d="M0 7h16v1H0z"/></svg>
@@ -144,7 +144,7 @@
                             <div class="image-wrapper">
                                 <img class="blur-bottom w-100" src="{{ asset('Images/antena.png') }}" alt="kapal">
                             </div>
-                                
+
                             <div class="cyan-text d-flex align-items-center gap-2 cyan">
                                 <h2>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" d="M0 7h16v1H0z"/></svg>
@@ -204,7 +204,7 @@
             @endforeach
         </div>
         <div class="d-flex justify-content-center my-5">
-            <a href="/selengkapnya"><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>
+            <a href="{{ Route('produk') }}"><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>
         </div>
     </div>
 
@@ -217,7 +217,7 @@
     <div id="forth-content"></div>
     <div id="fifth-content"></div> --}}
 
-    
+
    <script>
             window.addEventListener('scroll', function() {
             var animationVisible1 = document.getElementById('animationVisible1');
@@ -227,10 +227,10 @@
             var animatedImage = document.getElementById('animated-image');
             var sec = document.getElementById('second-content');
             var animatedImg = animatedImage.querySelector('img');
-            
+
             var topContentHeight = topContent.offsetHeight;
             var scrollPosition = window.scrollY;
-            
+
             // Calculate the 10% threshold
             var threshold = topContentHeight * 0.1;
 
@@ -250,14 +250,14 @@
                     animationVisible1.classList.add('animated-none');
                     animationVisible2.classList.add('animated-none');
                     animationVisible3.classList.add('animated-none');
-                    
+
                     animationVisible1.classList.remove('animated-visible');
                     animationVisible2.classList.remove('animated-visible');
                     animationVisible3.classList.remove('animated-visible');
                     animationVisible1.classList.remove('slide-up');
                     animationVisible2.classList.remove('slide-up');
                     animationVisible3.classList.remove('slide-up');
-                }, 100); 
+                }, 100);
             } else {
                 animatedImage.classList.remove('visible');
                 animatedImage.classList.add('hidden');
@@ -269,7 +269,7 @@
                     animationVisible1.classList.remove('animated-none');
                     animationVisible2.classList.remove('animated-none');
                     animationVisible3.classList.remove('animated-none');
-                    
+
                     animationVisible1.classList.add('animated-visible');
                     animationVisible2.classList.add('animated-visible');
                     animationVisible3.classList.add('animated-visible');
@@ -287,10 +287,10 @@
    </script>
 
    <script>
-    
+
    </script>
-    
-    
-    
-        
+
+
+
+
 @endsection

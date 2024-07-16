@@ -27,7 +27,7 @@ class ProdukController extends Controller
 
         return view('admin.produk',compact('kategori'));
     }
-    
+
     public function submit(Request $request){
         $validator = Validator::make($request->all(), [
             'gambar'     => 'required',
@@ -40,7 +40,7 @@ class ProdukController extends Controller
         }
         try {
             DB::beginTransaction();
-            $harga = preg_replace('/\D/', '', $request->harga); 
+            $harga = preg_replace('/\D/', '', $request->harga);
             $hargaProduk = trim($harga);
             $produk = Produk::create([
                 'kategori_produk_id'=>$request->kategori_id,
@@ -50,7 +50,7 @@ class ProdukController extends Controller
             ]);
             $gambar = $request->file('gambar');
             foreach ($gambar as $file) {
-                
+
                 $file->storeAs('public/image', $file->hashName());
 
                 GambarProduk::create([
@@ -61,10 +61,10 @@ class ProdukController extends Controller
             DB::commit();
             } catch (\Throwable $th) {
             DB::rollback();
-            return back()->with(['error'=> $th->getMessage()]);   
+            return back()->with(['error'=> $th->getMessage()]);
             //throw $th;
         }
-        return redirect('/admin/produk')->with(['success'=>'Data Berhasil Ditambah.']);   
+        return redirect('/admin/produk')->with(['success'=>'Data Berhasil Ditambah.']);
     }
 
     public function edit($id){
@@ -77,7 +77,7 @@ class ProdukController extends Controller
         try {
             DB::beginTransaction();
             $produk = Produk::find($id);
-            $harga = preg_replace('/\D/', '', $request->harga); 
+            $harga = preg_replace('/\D/', '', $request->harga);
             $hargaProduk = trim($harga);
             $produk->update([
                 'kategori_produk_id'=>$request->kategori_produk_id,
@@ -86,30 +86,30 @@ class ProdukController extends Controller
                 'harga'=>$hargaProduk
             ]);
             if ($request->hasFile('gambar')) {
-            
+
                 $gambars = $request->file('gambar');
                 foreach ($gambars as $file) {
-    
+
                     $filename = $file->hashName();
                     $file->storeAs('public/image', $filename);
-            
+
                     $gambarProduk = new GambarProduk();
                     $gambarProduk->produk_id = $produk->id;
                     $gambarProduk->gambar = $filename;
                     $gambarProduk->save();
                 }
-                
+
             }
             DB::commit();
             } catch (\Throwable $th) {
             DB::rollback();
-            return back()->with(['error'=> $th->getMessage()]);   
+            return back()->with(['error'=> $th->getMessage()]);
 
             //throw $th;
         }
         return redirect('/admin/produk')->with(['success'=>'Data Berhasil Diupdate.']);
     }
-    
+
     public function delete($id){
         try {
             DB::beginTransaction();
@@ -120,7 +120,7 @@ class ProdukController extends Controller
             DB::commit();
             } catch (\Throwable $th) {
             DB::rollback();
-            return back()->with(['error'=> $th->getMessage()]);   
+            return back()->with(['error'=> $th->getMessage()]);
 
             //throw $th;
         }
@@ -144,7 +144,10 @@ class ProdukController extends Controller
 
     public function frontend_produk(){
         $kategori = KategoriProduk::with('produk')->where('aktif',1)->get();
-        $produk = Produk::with('kategori_produk')->get();
+        $produk = Produk::with('kategori_produk')->where('aktif', 1)->get();
+        foreach ($produk as $key) {
+            $key->encryptId = Crypt::encrypt($key->id);
+        }
         return view('Frontend.Pages.produk',compact('produk','kategori'));
     }
 
