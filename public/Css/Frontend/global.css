@@ -1,3 +1,9 @@
+.xy-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .cyan{
     color: #00E0FF;
 }
@@ -73,7 +79,7 @@ h5{
 
 .rgb-red{
     background: hsla(358, 86%, 45%, 1);
-    background: linear-gradient(0deg, hsla(358, 86%, 45%, 1) 0%, hsla(357, 87%, 24%, 1) 100%);   
+    background: linear-gradient(0deg, hsla(358, 86%, 45%, 1) 0%, hsla(357, 87%, 24%, 1) 100%);
     background: -moz-linear-gradient(0deg, hsla(358, 86%, 45%, 1) 0%, hsla(357, 87%, 24%, 1) 100%);
     background: -webkit-linear-gradient(0deg, hsla(358, 86%, 45%, 1) 0%, hsla(357, 87%, 24%, 1) 100%);
 }
@@ -109,6 +115,21 @@ h5{
     object-fit: contain;
     height: 20rem;
     position: relative; /* Tambahkan ini untuk memastikan .image-wrapper::after posisinya relatif terhadap .blur-bottom */
+}
+.image-container {
+    width: fit-content;
+    position: relative;
+}
+
+.image-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    box-shadow: 0 0 8px 8px #1C4172 inset; /* Efek blur inset berwarna biru */
 }
 .image-wrapper {
     border-radius: 20px;

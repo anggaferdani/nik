@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <div id="fifth-content" class="py-4">
+    <div id="fifth-content" class="py-4 container">
         <div class="parent-grid-fifth">
             @foreach ($produk as $item)
             <div class="grid-fifth" data-kategori="{{ $item->kategori_produk->kategori }}">

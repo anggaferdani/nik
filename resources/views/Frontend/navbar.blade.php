@@ -1,8 +1,8 @@
-<link rel="stylesheet" href="{{asset('../Css/Frontend/navbar.css')}}">                                                            
+<link rel="stylesheet" href="{{asset('../Css/Frontend/navbar.css')}}">
 
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand" href="#" >
+      <a class="navbar-brand" href="{{ Route('beranda') }}" >
         <img class="nik-logo" src="{{asset('../Images/logonik.png')}}" alt="">
       </a>
       <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,13 +21,13 @@
               <a class="nav-link {{ request()->routeIs('produk') ? 'active' : '' }}" href="{{ route('produk') }}">Produk</a>
           </li>
           @if (Auth::user())
-              
+
           <li class="nav-item">
             <a class="nav-link {{ request()->routeIs('orderhistory') ? 'active' : '' }}" href="/order-history">Order History</a>
           </li>
           @endif
       </ul>
-      
+
         <div class="d-flex align-items-center gap-3" role="search">
           @if (Auth::user())
           <div class="dropdown">
