@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="page" data-page="admin">
-  <title>NIK</title>
+  <title>SAT Station Dashboard</title>
   <!-- General CSS Files -->
    <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css')}}">
@@ -49,7 +49,7 @@
     <div class="main-wrapper main-wrapper-1">
       <div class="navbar-bg"></div>
      @include('admin.navbar')
-      
+
       @include('admin.sidebar')
 
       <!-- Main Content -->
@@ -62,8 +62,8 @@
      @include('admin.footer')
     </div>
   </div>
-  
-  
+
+
   <!-- General JS Scripts -->
    <script src="{{ asset('assets/modules/jquery.min.js')}}"></script>
    <script src="{{ asset('assets/modules/popper.js')}}"></script>
@@ -72,8 +72,8 @@
    <script src="{{ asset('assets/modules/nicescroll/jquery.nicescroll.min.js')}}"></script>
    <script src="{{ asset('assets/modules/moment.min.js')}}"></script>
    <script src="{{ asset('assets/js/stisla.js')}}"></script>
-   
-   
+
+
    <!-- JS Libraies -->
    <script src="{{ asset('assets/modules/select2/dist/js/select2.full.min.js')}}"></script>
    <script src="{{ asset('assets/modules/jquery-selectric/jquery.selectric.min.js')}}"></script>
@@ -82,16 +82,16 @@
    <script src="{{ asset('assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js')}}"></script>
    <script src="{{ asset('assets/modules/izitoast/js/iziToast.min.js')}}"></script>
 
- 
+
    <!-- Page Specific JS File -->
    <script src="{{ asset('assets/js/page/forms-advanced-forms.js')}}"></script>
-   <script src="{{ asset('assets/js/page/features-post-create.js')}}"></script> 
+   <script src="{{ asset('assets/js/page/features-post-create.js')}}"></script>
    <script src="{{ asset('assets/js/page/modules-toastr.js')}}"></script>
-   
+
    <!-- Template JS File -->
    <script src="{{ asset('assets/js/scripts.js')}}"></script>
    <script src="{{ asset('assets/js/custom.js')}}"></script>
-   
+
    @if (Session::has('success'))
       <script>
           iziToast.success({

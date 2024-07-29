@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Create Order</title>
+    <title>SAT Station | Create Order</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('../Css/Frontend/createorder.css')}}">
@@ -14,18 +14,15 @@
 <body>
 
     <div class="container">
-        <div class="button-kembali d-flex align-items-center gap-2 text-white my-3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256">
-                <path fill="white"
-                    d="M224 128a8 8 0 0 1-8 8H59.31l58.35 58.34a8 8 0 0 1-11.32 11.32l-72-72a8 8 0 0 1 0-11.32l72-72a8 8 0 0 1 11.32 11.32L59.31 120H216a8 8 0 0 1 8 8" />
-                </svg>
-            <p>kembali</p>
-        </div>
+        <a href="{{ URL::previous() }}" class="button-kembali d-flex align-items-center gap-2 text-white my-3" style="text-decoration: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><path fill="white" d="M224 128a8 8 0 0 1-8 8H59.31l58.35 58.34a8 8 0 0 1-11.32 11.32l-72-72a8 8 0 0 1 0-11.32l72-72a8 8 0 0 1 11.32 11.32L59.31 120H216a8 8 0 0 1 8 8" /></svg>
+            <span>kembali</span>
+        </a>
         <form action="/submit-order" method="post" enctype="multipart/form-data" onsubmit="return confirm('Apakah data anda sudah lengkap?');">
         @csrf
 
         @foreach ($data as $item)
-            
+
         <div class="row my-3">
             <div class="col-xl-2 col-lg-3 col-sm-4 col-12 mb-sm-0 mb-3">
                 <div class="border-order p-4 text-white">
@@ -79,9 +76,6 @@
                         </div>
                     </div>
                 </div>
-                
-                
-
             </div>
         </div>
         @endforeach
@@ -126,7 +120,7 @@
                         </div>
                         <div class="custom-file-input">
                             <input type="file" class="form-control" accept=".jpg, .png, .jpeg" name="gambar" required id="gambar">
-                            <label for="formFile" class="file-label">Choose file</label>
+                            <label for="gambar" class="file-label">Choose file!</label>
                             <span class="file-name" id="fileName">No file chosen</span>
                         </div>
                     </div>

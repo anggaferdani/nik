@@ -58,7 +58,7 @@
                     @foreach ($gambar as $item)
                     <div class="image-container">
                         <img class="ms-auto" src="{{ asset('storage/image/'.$item->gambar) }}"
-                            style="width:150px; height:150px; box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; margin-left: 10px; margin-bottom:10px;">
+                            style="width:150px; height:150px; box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; margin-left: 10px; margin-bottom:10px; object-fit:cover;">
                         <div class="btn-delete" id="deletegambar" data-image-id="{{ $item->id }}">X</div>
                     </div>
 
@@ -113,7 +113,7 @@
         });
     });
 
-   
+
 
     function formatNumber(input) {
         // Menghilangkan karakter selain angka

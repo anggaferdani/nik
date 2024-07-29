@@ -1,4 +1,5 @@
 @extends('Frontend.main')
+
 @section('title', 'beranda')
 <link rel="stylesheet" href="{{asset('../Css/Frontend/beranda.css')}}">
 <link rel="stylesheet" href="{{asset('../Css/Frontend/global.css')}}">
@@ -25,7 +26,8 @@
 
 
     <div id="animated-image" class="image-animasi hidden">
-        <img src="{{ asset('Images/animasi-transparan.png') }}" alt="Animated Image">
+        {{-- !WIP: needs to be fixed --}}
+        {{-- <img src="{{ asset('Images/animasi-transparan.png') }}" alt="Animated Image"> --}}
     </div>
 
     <div id="second-content" class="second-content">
@@ -180,31 +182,35 @@
     </div>
 
     <div id="fifth-content" class="py-4">
-        <div class="parent-grid-fifth">
-            @foreach ($produk as $item)
-            <div class="grid-fifth">
-                <div class="border-cyan p-4 text-white d-flex justify-content-center">
-                    <div class="gambar-layanan">
-                        <div class="image-wrapper-cyan text-center">
-                            <div class="d-flex justify-content-center">
-                                <img class="blur-bottom w-50" src="{{ asset('storage/image/'.$item->gambarproduk[0]->gambar) }}" alt="">
+        <div class="container">
+            <div class="parent-grid-fifth">
+                @foreach ($produk as $item)
+                <div class="grid-fifth">
+                    <div class="border-cyan p-4 text-white d-flex justify-content-center">
+                        <div class="gambar-layanan">
+                            <div class="image-wrapper-cyan text-center">
+                                <div class="d-flex justify-content-center">
+                                    <div class="image-container">
+                                        <img class="w-100" src="{{ asset('storage/image/'.$item->gambarproduk[0]->gambar) }}" alt="">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="text-center">
-                            <h1>{{$item->nama}}</h1>
-                            <h3>{{$item->kategori_produk->kategori}}</h3>
-                            <div class="button d-flex justify-content-center gap-3 mt-3">
-                                <a href="/detail-produk/{{$item->encryptId}}"><button class="btn-pelajari solid-blue text-white" type="submit">Pelajari</button></a>
-                                <a href="/keranjang"><button class="btn-beli border-white" type="submit">Beli</button></a>
+                            <div class="text-center">
+                                <h1>{{$item->nama}}</h1>
+                                <h3>{{$item->kategori_produk->kategori}}</h3>
+                                <div class="button d-flex justify-content-center gap-3 mt-3">
+                                    <a href="/detail-produk/{{$item->encryptId}}"><button class="btn-pelajari solid-blue text-white" type="submit">Pelajari</button></a>
+                                    <a href="/keranjang"><button class="btn-beli border-white" type="submit">Beli</button></a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
-            @endforeach
-        </div>
-        <div class="d-flex justify-content-center my-5">
-            <a href="{{ Route('produk') }}"><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>
+            <div class="d-flex justify-content-center my-5">
+                <a href="{{ Route('produk') }}"><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>
+            </div>
         </div>
     </div>
 
@@ -218,7 +224,7 @@
     <div id="fifth-content"></div> --}}
 
 
-   <script>
+    <script>
             window.addEventListener('scroll', function() {
             var animationVisible1 = document.getElementById('animationVisible1');
             var animationVisible2 = document.getElementById('animationVisible2');
@@ -236,7 +242,7 @@
 
             // Calculate scale based on scroll position
             var scaleValue = Math.max(1, 50 - (scrollPosition / topContentHeight * 55));
-            console.log(scaleValue)
+
             animatedImg.style.transform = `scale(${scaleValue})`;
 
             // Check if top-content is scrolled past 10% and handle visibility
@@ -284,13 +290,5 @@
             topContent.style.backgroundPositionY = -(scrollPosition * parallaxSpeed) + 'px';
         });
 
-   </script>
-
-   <script>
-
-   </script>
-
-
-
-
+    </script>
 @endsection
