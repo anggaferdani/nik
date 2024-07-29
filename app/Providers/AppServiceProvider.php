@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,7 +22,10 @@ class AppServiceProvider extends ServiceProvider
     {
         if ($this->app->environment('production')) {
             \URL::forceScheme('https');
-            
         }
+
+        Blade::directive('rupiah', function ( $expression ) {
+            return "Rp. <?php echo number_format($expression,0,',','.'); ?>";
+        });
     }
 }

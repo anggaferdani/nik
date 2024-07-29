@@ -7,7 +7,7 @@
     height: 100vh;
     display: flex;
     align-items: center;
-    
+
     position: sticky;
     top: 0;
     z-index: -1;
@@ -18,7 +18,7 @@
     position: relative;
     z-index: 2;
     top: 0;
-    width: 100%;    
+    width: 100%;
 }
 
 #top-content .container{
@@ -49,7 +49,7 @@
     width: 100%;
     height: 100vh;
     object-fit: cover;
-    z-index: 50; 
+    z-index: 50;
     transform: scale(100);
     transition: transform 0.1s ease-out;
 }
@@ -63,7 +63,7 @@
 
 
 
-    
+
 .image-animasi .visible {
     display: block; /* Ditampilkan */
     animation: scaleAnimation 2s forwards;
@@ -225,13 +225,13 @@
 .btn-pelajari{
     border-radius: 50px;
     padding: .5rem 2rem;
-    border: none;
+    border: 2px solid #004DE1;
 }
 .btn-beli{
     border-radius: 50px;
     padding: .5rem 2rem;
 }
-  
+
 .text-wrapper{
     position: absolute;
     bottom: 0;

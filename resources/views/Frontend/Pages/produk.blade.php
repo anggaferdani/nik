@@ -52,7 +52,10 @@
                             <h3>{{ $item->kategori_produk->kategori }}</h3>
                             <div class="button d-flex justify-content-center gap-3 mt-3">
                                 <a href="/detail-produk/{{$item->encryptId}}"><button class="btn-pelajari solid-blue text-white" type="submit">Pelajari</button></a>
-                                <a href="/keranjang"><button class="btn-beli border-white" type="submit">Beli</button></a>
+                                <button class="btn-beli border-white" onclick="handleModal({
+                                    productId: '{{ $item->encryptId }}',
+                                    productName: '{{ $item->nama }}'
+                                })">Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -65,7 +68,75 @@
         </div>
     </div>
 
+    <div id="confirmation-modal"></div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        function handleModal({
+            productId = null,
+            productName = null
+        }) {
+            if (!productName || !productId) { throw "Kurangnya parameter modal!"; }
+
+            const modalSet = document.getElementById("confirmation-modal");
+
+            const url = ["{{ Route('post.submit.keranjang', '') }}", productId];
+
+            const action = url.join('/');
+
+            @auth
+            const modalDom =
+                '<div class="custom-modal">' +
+                    '<div class="custom-modal-container">' +
+                        '<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem;">' +
+                            '<svg  xmlns="http://www.w3.org/2000/svg"  width="48"  height="48"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-help-hexagon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.875 6.27c.7 .398 1.13 1.143 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" /><path d="M12 16v.01" /><path d="M12 13a2 2 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483" /></svg>' +
+                            '<span style="font-weight: bold; font-size: 2rem; text-align: center;">' + productName + '</span>' +
+                            '<span style="text-align: center">Apakah anda ingin memasukkan produk ini <br> kedalam keranjang anda?</span>' +
+                            '<div style="display: flex; justify-content: center; align-items: center; gap: 1rem;">' +
+                                '<button onclick="handleCloseModal()" id="cancel-button" style="padding: .5rem 4rem; color: white; background: hsla(358, 86%, 45%, 1); border: 2px solid hsla(358, 86%, 45%, 1); border-radius: 100rem;">Tidak</button>' +
+                                '<button form="confirmation-form" style="padding: .5rem 4rem; color: white; background: hsla(201, 100%, 41%, 1); border: 2px solid hsla(201, 100%, 41%, 1); border-radius: 100rem;">Lanjut</button>' +
+                            '</div>' +
+                        '</div>' +
+                        '<form id="confirmation-form" action="' + action + '" method="post">' +
+                            '{{ csrf_field() }}'
+                        '</form>' +
+                    '</div>' +
+                '</div>'
+            ;
+            @endauth
+
+            @guest
+            const modalDom =
+                '<div class="custom-modal">' +
+                    '<div class="custom-modal-container">' +
+                        '<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem;">' +
+                            '<svg  xmlns="http://www.w3.org/2000/svg"  width="48"  height="48"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-help-hexagon"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.875 6.27c.7 .398 1.13 1.143 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" /><path d="M12 16v.01" /><path d="M12 13a2 2 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483" /></svg>' +
+                            '<span style="font-weight: bold; font-size: 2rem; text-align: center;">Apakah anda sudah mempunyai akun?</span>' +
+                            '<span style="text-align: center">Masuk sebagai User untuk melakukan pembelian barang.</span>' +
+                            '<div style="display: flex; justify-content: center; align-items: center; gap: 1rem;">' +
+                                '<button onclick="handleCloseModal()" id="cancel-button" style="padding: .5rem 4rem; color: white; background: hsla(358, 86%, 45%, 1); border: 2px solid hsla(358, 86%, 45%, 1); border-radius: 100rem;">Batal</button>' +
+                                '<button form="confirmation-form" style="padding: .5rem 4rem; color: white; background: hsla(201, 100%, 41%, 1); border: 2px solid hsla(201, 100%, 41%, 1); border-radius: 100rem;">Masuk</button>' +
+                            '</div>' +
+                        '</div>' +
+                        '<form id="confirmation-form" action="' + action + '" method="post">' +
+                            '{{ csrf_field() }}'
+                        '</form>' +
+                    '</div>' +
+                '</div>'
+            ;
+            @endguest
+
+            if (modalSet) { modalSet.innerHTML = modalDom; }
+        }
+
+        function handleCloseModal() {
+            const modalSet = document.getElementById("confirmation-modal");
+
+            if (modalSet) { modalSet.innerHTML = null; }
+        }
+    </script>
+
     <script>
         $(document).ready(function() {
             $('.btn-option').on('click', function() {
