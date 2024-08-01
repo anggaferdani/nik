@@ -7,19 +7,14 @@
 @section('content')
     <div id="pages-layanan">
         <div class="container">
-            {{-- <div id="top-content">
-                <div class="container">
-                    <h3 class="cyan fw-bold">LAYANAN SATELIT STATION</h3>
-                    <p class="text-white my-3">Lorem ipsum dolor sit amet consectetur. Aliquam et ut risus amet tortor nulla. Consectetur nisl quam purus in. Mauris lectus dolor morbi potenti quam dictum. Odio lorem sed lectus volutpat tincidunt eget nisl egestas cursus. Egestas maecenas interdum egestas tellus rhoncus at pretium sit suspendisse.</p>
-                </div>
-            </div> --}}
+            <div><a href="{{ route('produk-kami') }}" class="text-white fs-5 text-decoration-none"><i class="fa-solid fa-arrow-left"></i> Kembali</a></div>
 
             <div id="bottom-content" class="my-5">
                 {{-- <img class="ellipse-blur" src="{{ asset('Images/ellipse-blur.png') }}" alt=""> --}}
                 <div class="row align-items-center justify-content-lg-start justify-content-center my-xl-3 my-5">
                     <div class="col-lg-7 col-12 d-flex justify-content-lg-start justify-content-center my-lg-0 my-3">
                         <div class="image-container" style="
-                            /* background-image: url('{{ asset('storage/image/'.$data->gambarproduk[0]->gambar) }}');
+                            /* background-image: url('{{ asset('produk/file/' . $data->file) }}');
                             background-size: cover;
                             background-repeat: no-repeat;
                             background-position: center;
@@ -27,7 +22,7 @@
                             height: 24rem;
                             box-shadow: 0 0 8px 8px #1C4172 inset; */
                             ">
-                            <img class="image-blur" src="{{ asset('storage/image/'.$data->gambarproduk[0]->gambar) }}" alt="produk">
+                            <img class="image-blur" src="{{ asset('produk/file/' . $data->file) }}" alt="produk">
                         </div>
                     </div>
                     <div class="col-lg-4 col-9">
@@ -39,7 +34,8 @@
                         </div>
                         <div class="text-white text-lg-start text-center">
                             <h2 class="my-3">{{$data->nama}}</h2>
-                            <p class="fw-200">{!! $data->deskripsi !!}</p>
+                            <p class="fw-200 mb-3">{!! $data->deskripsi !!}</p>
+                            <a href="{{ route('get.submit.keranjang', $data->id) }}" class="btn btn-primary rounded-pill px-4">Add to cart</a>
                         </div>
                     </div>
                 </div>

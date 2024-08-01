@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produk;
+use App\Models\Layanan;
 use Illuminate\Http\Request;
+use App\Models\CompanyProfile;
+use App\Models\Partner;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 
@@ -16,11 +19,18 @@ class BerandaController extends Controller
                 Auth::logout();
             }
         }
-        $produk = Produk::with('gambarproduk','kategori_produk')->where('aktif', 1)->take(2)->get();
+        $produk = Produk::with('gambarproduk','kategori_produk')->where('status', 1)->take(2)->get();
         foreach ($produk as $key) {
             $key->encryptId = Crypt::encrypt($key->id);
         }
-        // dd($produk[0]->gambarproduk[0]->gambar);
-        return view('Frontend.Pages.beranda',compact('produk'));
+        $companyProfile = CompanyProfile::first();
+        $layanans = Layanan::where('status', 1)->get();
+        $partners = Partner::where('status', 1)->get();
+        return view('Frontend.Pages.beranda',compact(
+            'produk',
+            'companyProfile',
+            'layanans',
+            'partners',
+        ));
     }
 }

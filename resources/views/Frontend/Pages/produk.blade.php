@@ -14,10 +14,6 @@
                     <h1>STARLINK</h1>
                     <p>Produk terbaru dari STARLINK tersedia di kami</p>
                 </div>
-                <div class="button d-flex gap-3 mt-3">
-                    <a href=""><button class="btn-nik rgb-red text-white" type="submit">Lorem ipsum.</button></a>
-                    <a href=""><button class="btn-nik rgb-blue text-white" type="submit">Lorem ipsum.</button></a>
-                </div>
             </div>
         </div>
     </div>
@@ -44,7 +40,7 @@
                     <div class="gambar-layanan">
                         <div class="image-wrapper-cyan text-center">
                             <div class="d-flex justify-content-center">
-                                <img class="blur-bottom w-50" src="{{ asset('storage/image/'.$item->gambarproduk[0]->gambar) }}" alt="">
+                                <img class="blur-bottom w-50" src="/produk/file/{{ $item->file }}" alt="">
                             </div>
                         </div>
                         <div class="text-center">
@@ -62,9 +58,6 @@
                 </div>
             </div>
             @endforeach
-        </div>
-        <div class="d-flex justify-content-center my-5">
-            <a href=""><button class="btn-pelajari mx-auto border-white" type="submit">Selengkapnya>></button></a>
         </div>
     </div>
 

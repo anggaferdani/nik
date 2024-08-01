@@ -15,22 +15,12 @@
                     <a class="nav-link {{ request()->routeIs('beranda') ? 'active' : '' }}" aria-current="page" href="{{ route('beranda') }}">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('layanan') ? 'active' : '' }}" href="{{ route('layanan') }}">Layanan Kami</a>
+                    <a class="nav-link {{ request()->routeIs('layanan') ? 'active' : '' }}" href="{{ route('layanan-kami') }}">Layanan Kami</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('produk') ? 'active' : '' }}" href="{{ route('produk') }}">Produk</a>
+                    <a class="nav-link {{ Route::is('produk-kami', 'detail.produk') ? 'active' : '' }}" href="{{ route('produk-kami') }}">Produk</a>
                 </li>
                 @auth
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('keranjang') ? 'active' : '' }}" href="{{ Route('keranjang') }}" style="position: relative;">
-                            Keranjang Anda
-                            @if (Auth::user()->Keranjang->where('aktif', 1)->count())
-                                <span style="position: absolute; display: flex; justify-content: center; align-items: center; background: hsla(358, 86%, 45%, 1); border-radius: 100rem; width: 1.5rem; height: 1.5rem; font-size: .9rem; top: -.1rem; right: -.1rem; color: white">
-                                    {{ Auth::user()->Keranjang->where('aktif', 1)->count() }}
-                                </span>
-                            @endif
-                        </a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('orderhistory') ? 'active' : '' }}" href="{{ Route('orderhistory') }}">Order History</a>
                     </li>
@@ -39,18 +29,21 @@
 
             <div class="d-flex align-items-center gap-3" role="search">
                 @if (Auth::user())
+                    <a href="{{ route('keranjang') }}" class="text-decoration-none">
+                        <i class="fa-solid fa-bag-shopping fs-2 text-white"></i>
+                        @if (Auth::user()->Keranjang->where('aktif', 1)->count())
+                            <span class="badge bg-danger rounded-circle text-white">{{ Auth::user()->Keranjang->where('aktif', 1)->count() }}</span>
+                        @endif
+                    </a>
                     <div class="dropdown">
                         <div class="text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{Auth::user()->name}}
                         </div>
-                        <ul class="dropdown-menu " style="background: none !important; border: none !important;">
-                            <form method="POST" action="/user-logout">
+                        <ul class="dropdown-menu" style="">
+                            <form method="POST" action="/user-logout" class="mb-0">
                             @csrf
                                 <li class="dropdown-item">
-                                    <button type="submit" class="btn btn-danger"
-                                    >
-                                    Logout
-                                </button>
+                                    <button type="submit" class="btn btn-danger w-100">Logout</button>
                                 </li>
                             </form>
                         </ul>
@@ -58,11 +51,6 @@
                 @else
                     <a href="/login"><button class="btn-login rgb-red text-white" type="submit">Login</button></a>
                 @endif
-                <a href="/keranjang">
-                    <h2 class="text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><path fill="currentColor" d="M216 64h-40a48 48 0 0 0-96 0H40a16 16 0 0 0-16 16v120a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16m-88-32a32 32 0 0 1 32 32H96a32 32 0 0 1 32-32m88 168H40V80h40v16a8 8 0 0 0 16 0V80h64v16a8 8 0 0 0 16 0V80h40Z"/></svg>
-                    </h2>
-                </a>
             </div>
         </div>
     </div>
