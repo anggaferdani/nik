@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Produk;
+use App\Models\Layanan;
+use App\Models\Partner;
 use App\Models\GambarProduk;
 use Illuminate\Http\Request;
+use App\Models\CompanyProfile;
 use App\Models\KategoriProduk;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\DB;
@@ -144,11 +147,20 @@ class ProdukController extends Controller
 
     public function frontend_produk(){
         $kategori = KategoriProduk::with('produk')->where('aktif',1)->get();
-        $produk = Produk::with('kategori_produk')->where('aktif', 1)->get();
+        $produk = Produk::with('kategori_produk')->where('status', 1)->get();
         foreach ($produk as $key) {
             $key->encryptId = Crypt::encrypt($key->id);
         }
-        return view('Frontend.Pages.produk',compact('produk','kategori'));
+        $companyProfile = CompanyProfile::first();
+        $layanans = Layanan::where('status', 1)->get();
+        $partners = Partner::where('status', 1)->get();
+        return view('Frontend.Pages.produk',compact(
+            'produk',
+            'kategori',
+            'companyProfile',
+            'layanans',
+            'partners',
+        ));
     }
 
     public function detail_produk($encryptId){
@@ -160,6 +172,14 @@ class ProdukController extends Controller
         }
         $id = Crypt::decrypt($encryptId);
         $data = Produk::find($id);
-        return view('Frontend.Pages.detail-produk',compact('data'));
+        $companyProfile = CompanyProfile::first();
+        $layanans = Layanan::where('status', 1)->get();
+        $partners = Partner::where('status', 1)->get();
+        return view('Frontend.Pages.detail-produk',compact(
+            'data',
+            'companyProfile',
+            'layanans',
+            'partners',
+        ));
     }
 }

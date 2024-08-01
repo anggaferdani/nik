@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="page" data-page="admin">
-  <title>SAT Station Dashboard</title>
+  <title>SAT Station</title>
   <!-- General CSS Files -->
    <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css')}}">
@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="{{ asset('assets/modules/datatables/datatables.min.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/modules/summernote/summernote-bs4.css')}}">
   <link rel="stylesheet" href="{{ asset('image-uploader/dist/image-uploader.min.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <link rel="stylesheet" href="{{ asset('assets/modules/izitoast/css/iziToast.min.css')}}">
@@ -41,7 +42,16 @@
 <!-- /END GA --></head>
 <style>
   #preview img{
-          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+  ::-webkit-resizer{
+    display: none;
+  }
+  .modal-backdrop{
+    display: none;
+  }
+  .modal{
+    background: rgba(0, 0, 0, 0.5); 
   }
 </style>
 <body>
@@ -91,6 +101,55 @@
    <!-- Template JS File -->
    <script src="{{ asset('assets/js/scripts.js')}}"></script>
    <script src="{{ asset('assets/js/custom.js')}}"></script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.7.5/sweetalert2.all.js" integrity="sha512-AINSNy+d2WG9ts1uJvi8LZS42S8DT52ceWey5shLQ9ArCmIFVi84nXNrvWyJ6bJ+qIb1MnXR46+A4ic/AUcizQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+   <script type="text/javascript">
+    $('.delete').click(function(){
+      Swal.fire({
+        title: "Are you sure?",
+        text: "Are you sure you want to delete this?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonClass: "btn-danger",
+        confirmButtonText: "Yes, delete it",
+        closeOnConfirm: false
+      }).then((result) => {
+        if(result.isConfirmed){
+          $(this).closest("form").submit();
+        }
+      });
+    });
+  </script>
+
+<script>
+  $('.verify').click(function(event){
+    event.preventDefault();
+    var deleteUrl = $(this).attr('href');
+    Swal.fire({
+      title: "Apakah anda yakin?",
+      text: "Apakah anda yakin ingin memverifikasi order ini?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Yes",
+      closeOnConfirm: false
+    }).then((result) => {
+      if(result.isConfirmed){
+          window.location.href = deleteUrl;
+      }
+    });
+  });
+</script>
+
+  <script type="text/javascript">
+    function formatNumber(input){
+      var num = input.value.replace(/[^0-9]/g, '');
+
+      var formattedNum = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(num);
+      input.value = formattedNum;
+    }
+  </script>
 
    @if (Session::has('success'))
       <script>

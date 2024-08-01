@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('order_items', function (Blueprint $table) {
-            $table->unsignedBigInteger('produk_id')->nullable();
-            $table->foreign('produk_id')->references('id')->on('produks');
+        Schema::create('partners', function (Blueprint $table) {
+            $table->id();
+            $table->string('partner');
+            $table->string('logo');
+            $table->integer('status')->default(1);
+            $table->timestamps();
         });
     }
 
@@ -22,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('order_items', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('partners');
     }
 };

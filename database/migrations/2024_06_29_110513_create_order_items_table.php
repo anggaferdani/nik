@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('order_id')->nullable();
             $table->foreign('order_id')->references('id')->on('orders');
-            $table->string('nama_produk')->nullable();
+            $table->unsignedBigInteger('produk_id')->nullable();
+            $table->foreign('produk_id')->references('id')->on('produks');
             $table->bigInteger('qty')->nullable();
             $table->timestamps();
         });

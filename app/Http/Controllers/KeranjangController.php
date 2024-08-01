@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Keranjang;
 use App\Models\Produk;
+use App\Models\Keranjang;
 use Illuminate\Http\Request;
+use App\Models\CompanyProfile;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\DB;
 
 class KeranjangController extends Controller
 {
@@ -21,8 +22,9 @@ class KeranjangController extends Controller
         }
 
         $keranjangs = Keranjang::with(['produk.gambarproduk', 'produk.kategori_produk'])->where([['user_id', Auth::id()], ['aktif', 1]])->get();
+        $companyProfile = CompanyProfile::first();
 
-        return view('Frontend.Pages.keranjang', compact('keranjangs'));
+        return view('Frontend.Pages.keranjang', compact('keranjangs', 'companyProfile'));
     }
 
     public function clear_all() {
@@ -47,17 +49,17 @@ class KeranjangController extends Controller
         return redirect()->back();
     }
 
-    public function clear_one($encryptedId) {
+    public function clear_one($id) {
         try {
             DB::beginTransaction();
 
-            $keranjangId = Crypt::decrypt($encryptedId);
-
-            $keranjang = Keranjang::where([['id', $keranjangId], ['user_id', Auth::id()], ['aktif', 1]])->first();
+            $keranjang = Keranjang::where([['id', $id], ['user_id', Auth::id()], ['aktif', 1]])->first();
 
             if ($keranjang) { $keranjang->delete(); }
 
             DB::commit();
+
+            return response()->json(['success' => 'Product deleted successfully']);
 
         } catch (\Throwable $th) {
 
@@ -75,12 +77,39 @@ class KeranjangController extends Controller
 
             $productId = Crypt::decrypt($encryptedId);
 
-            $product = Produk::where([['id', $productId], ['aktif', 1]])->first();
+            $product = Produk::where([['id', $productId], ['status', 1]])->first();
 
             if (!$product) { throw new Exception("Produk tidak ditemukan."); }
 
             Keranjang::firstOrCreate([
                 'produk_id' => $productId,
+                'user_id'   => Auth::id(),
+                'qty'       => 1,
+                'aktif'     => 1
+            ]);
+
+            DB::commit();
+
+        } catch (\Throwable $th) {
+
+            DB::rollback();
+
+            return back()->with(['error' => 'Ada Kesalahan ', $th->getMessage()]);
+        }
+
+        return redirect()->back();
+    }
+
+    public function get_submit_keranjang(String $id){
+        try {
+            DB::beginTransaction();
+
+            $product = Produk::where([['id', $id], ['status', 1]])->first();
+
+            if (!$product) { throw new Exception("Produk tidak ditemukan."); }
+
+            Keranjang::firstOrCreate([
+                'produk_id' => $product->id,
                 'user_id'   => Auth::id(),
                 'qty'       => 1,
                 'aktif'     => 1

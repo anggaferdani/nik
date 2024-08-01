@@ -11,11 +11,11 @@
                 <h2>
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" d="M0 7h16v1H0z"/></svg>
                 </h2>
-                <p class="">Lorem ipsum dolor sit amet consectetur.</p>
+                <p class="">{{ $companyProfile->subtitle }}</p>
             </div>
             <div class="desc text-white text-sm-start text-center">
-                <h3 class="w-40 fw-bold my-3"> PENYEDIA PERANGKAT TELEKOMUNIKASI SATELIT DAN NAVIGASI LAUT </h3>
-                <p class="w-30">Lorem ipsum dolor sit amet consectetur. Venenatis tortor quam sollicitudin nulla amet id faucibus.</p>
+                <h3 class="w-40 fw-bold my-3">{{ $companyProfile->title }}</h3>
+                <p class="w-30">{{ $companyProfile->subtitle }}</p>
             </div>
             <div class="button d-flex justify-content-sm-start justify-content-center gap-3 mt-3">
                 <a href=""><button class="btn-nik rgb-red text-white" type="submit">Lorem ipsum.</button></a>
@@ -27,7 +27,7 @@
 
     <div id="animated-image" class="image-animasi hidden">
         {{-- !WIP: needs to be fixed --}}
-        {{-- <img src="{{ asset('Images/animasi-transparan.png') }}" alt="Animated Image"> --}}
+        <img src="{{ asset('Images/animasi-transparan.png') }}" alt="Animated Image">
     </div>
 
     <div id="second-content" class="second-content">
@@ -39,9 +39,9 @@
                     <img id="animationVisible1" class=" mb-5 satellite-image" src="{{ asset('Images/satellite-station.png') }}" alt="">
 
                     <div class="" id="animationVisible2">
-                        <h3 class=" ">SIAPA KAMI?</h3>
-                        <p class=" ">Perusahaan kami berpengalaman menyediakan solusi dan perangkat dibidang telekomunikasi satelit dan navigasi laut dengan membawa beberapa merek ternama. Sebagai distributor resmi dari Thuraya, KODEN, dan beberapa brand lainnya, kami memastikan bahwa setiap produk yang kami jual adalah produk asli dan berkualitas tinggi...</p>
-                        <p class="red my-3">Selengkapnya>></p>
+                        <h3 class="mb-3 ">SIAPA KAMI?</h3>
+                        <p class="mb-5 ">{{ $companyProfile->description }}</p>
+                        {{-- <p class="red my-3">Selengkapnya>></p> --}}
                     </div>
                 </div>
 
@@ -55,7 +55,7 @@
                                 </div>
                                 <img class="rotate h-25" src="{{ asset('Images/panah.png')}}" alt="">
                             </div>
-                            <p class="fw-200">Menjadi pemimpin terkemuka dalam layanan konektivitas satelit dan alat navigasi kapal, menjadi pilihan utama pelanggan untuk solusi komunikasi dan navigasi yang handal dan inovatif di Indonesia.</p>
+                            <p class="fw-200">{{ $companyProfile->visi }}</p>
                         </div>
                     </div>
                     <div class="col-lg-8 col-10" id="grid-second-content">
@@ -120,47 +120,28 @@
         <h3 class="text-center cyan mb-3">LAYANAN KAMI</h3>
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-12 my-md-0 my-2">
-                    <div class="content-layanan p-2">
-                        <div class="gambar-layanan w-100">
-                            <div class="image-wrapper">
-                                <img class="blur-bottom w-100" src="{{ asset('Images/kapal.png') }}" alt="kapal">
-                            </div>
+                @foreach ($layanans as $layanan)
+                    <div class="col-md-6 col-12 my-md-0 my-2">
+                        <div class="content-layanan p-2">
+                            <div class="gambar-layanan w-100">
+                                <div class="image-wrapper">
+                                    <img class="blur-bottom w-100" src="layanan/file/{{ $layanan->file }}" alt="">
+                                </div>
 
-                            <div class="cyan-text d-flex align-items-center gap-2 cyan">
-                                <h2>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" d="M0 7h16v1H0z"/></svg>
-                                </h2>
-                                <p>Navigasi & Radio</p>
+                                <div class="cyan-text d-flex align-items-center gap-2 cyan">
+                                    <h2>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" d="M0 7h16v1H0z"/></svg>
+                                    </h2>
+                                    <p>{{ $layanan->category }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="deskripsi-layanan text-white text-md-start text-center">
-                            <h3 class="my-3">PENYEDIA ALAT NAVIGASI MARITIM</h3>
-                            <p class="fw-300 w-60">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima quibusdam soluta illo!</p>
+                            <div class="deskripsi-layanan text-white text-md-start text-center">
+                                <h3 class="my-3">{{ $layanan->title }}</h3>
+                                <p class="fw-300 w-60">{{ $layanan->description }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-12 my-md-0 my-2">
-                    <div class="content-layanan p-2">
-                        <div class="gambar-layanan w-100">
-                            <div class="image-wrapper">
-                                <img class="blur-bottom w-100" src="{{ asset('Images/antena.png') }}" alt="kapal">
-                            </div>
-
-                            <div class="cyan-text d-flex align-items-center gap-2 cyan">
-                                <h2>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" d="M0 7h16v1H0z"/></svg>
-                                </h2>
-                                <p>Internet Satelit & Telepon Satelit</p>
-                            </div>
-                        </div>
-                        <div class="deskripsi-layanan text-white text-md-start text-center">
-                            <h3 class="my-3">PEYEDIA LAYANAN KOMUNIKASI
-                                SATELIT DAN RADIO DI INDONESIA</h3>
-                            <p class="fw-300 w-60">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima quibusdam soluta illo!</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -191,7 +172,7 @@
                                 <div class="image-wrapper-cyan text-center">
                                     <div class="d-flex justify-content-center">
                                         <div class="image-container">
-                                            <img class="w-100" src="{{ asset('storage/image/'.$item->gambarproduk[0]->gambar) }}" alt="">
+                                            <img class="w-100" src="/produk/file/{{ $item->file }}" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -215,7 +196,7 @@
                 @endforeach
             </div>
             <div class="d-flex justify-content-center my-5">
-                <a href="{{ Route('produk') }}"><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>
+                <a href="{{ Route('produk-kami') }}"><button class="btn-pelajari  mx-auto  border-white" type="submit">Selengkapnya>></button></a>
             </div>
         </div>
     </div>
