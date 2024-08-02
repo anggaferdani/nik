@@ -141,7 +141,7 @@
           </div>
           <div class="mb-3">
             <label class="form-label required">WA</label>
-            <input type="email" class="form-control" name="wa" placeholder="WA" value="{{ $companyProfile->wa }}">
+            <input type="number" class="form-control" name="wa" placeholder="WA" value="{{ $companyProfile->wa }}">
             <div class="text-muted small">*column ini akan ditampilkan pada bagian wa di index</div>
             @error('wa')<div class="text-danger">{{ $message }}</div>@enderror
           </div>
