@@ -11,7 +11,7 @@
                 <h2>
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" d="M0 7h16v1H0z"/></svg>
                 </h2>
-                <p class="">{{ $companyProfile->subtitle }}</p>
+                <p class="">{{ $companyProfile->subsubtitle }}</p>
             </div>
             <div class="desc text-white text-sm-start text-center">
                 <h3 class="w-40 fw-bold my-3">{{ $companyProfile->title }}</h3>

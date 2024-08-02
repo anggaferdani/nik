@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -27,5 +28,10 @@ class OrderController extends Controller
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
         }
+    }
+
+    public function history(){
+        $orders = Order::with('order_item.produk.gambarproduk')->where('user_id',Auth::user()->id)->get();
+        return view('Frontend.Pages.orderHistory',compact('orders'));
     }
 }

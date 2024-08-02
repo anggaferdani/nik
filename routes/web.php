@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KeranjangController;
@@ -38,7 +38,7 @@ Route::get('/selengkapnya', [SelengkapnyaController::class,'index'])->name('sele
 
 Route::middleware(['user'])->group(function () {
     Route::get('/create-order', [OrderController::class,'view']);
-    Route::get('/order-history', [OrderController::class,'history'])->name('orderhistory');
+    Route::get('/order-history', [OrderController2::class,'history'])->name('orderhistory');
     Route::get('/keranjang', [KeranjangController::class,'index'])->name('keranjang');
     Route::post('/keranjang/clear', [KeranjangController::class, 'clear_all'])->name('clear-keranjang');
     Route::get('/keranjang/delete/{id}', [KeranjangController::class,'clear_one'])->name('clear.one.keranjang');
