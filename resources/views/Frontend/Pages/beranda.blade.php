@@ -45,7 +45,7 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-center" id="animationVisible3">
+                <div class="row justify-content-center" id="visi">
                     <div class="col-lg-4 col-10 my-lg-0 my-3">
                         <div class="border-cyan p-4 text-white">
                             <div class="d-flex align-items-center justify-content-between w-100  mb-3">
