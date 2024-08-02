@@ -62,8 +62,8 @@ class PartnerController extends Controller
                 'partner' => $request['partner'],
             ];
 
-            if ($request->hasFile('file')) {
-                $array['logo'] = $this->handleFileUpload($request->file('logo'), 'partner/logo/');
+            if ($request->hasFile('logo')) {
+                $array['logo'] = $this->handleFileUpload($request->file('logo'), '/partner/logo/');
             }
     
             $partner->update($array);
