@@ -44,7 +44,7 @@ Route::middleware(['user'])->group(function () {
     Route::get('/keranjang/delete/{id}', [KeranjangController::class,'clear_one'])->name('clear.one.keranjang');
     Route::post('/submit-keranjang/{id}', [KeranjangController::class,'submit_keranjang'])->name('post.submit.keranjang');
     Route::get('/submit-keranjang/{id}', [KeranjangController::class,'get_submit_keranjang'])->name('get.submit.keranjang');
-    Route::post('/submit-order', [OrderController::class,'index'])->name('submit-order');
+    Route::post('/submit-order', [OrderController2::class,'submit'])->name('submit-order');
 });
 
 Route::get('/', [BerandaController::class,'beranda'])->name('beranda');
