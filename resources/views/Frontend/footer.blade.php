@@ -41,22 +41,26 @@
         <div class="row text-white justify-content-sm-between justify-content-center">
             <div class="col-md-2 col-sm-5 col-12 text-sm-start text-center my-md-0 my-3">
                 <h4 class="mb-3">Beranda</h4>
-                <p>Tentang Sat Station</p>
-                <p>Visi Misi</p>
+                <p><a href="{{ route('beranda') }}#second-content" class="text-white">Tentang Sat Station</a></p>
+                <p><a href="{{ route('beranda') }}#visi" class="text-white">Visi Misi</a></p>
             </div>
             <div class="col-md-3 col-sm-7 col-12 text-sm-start text-center my-md-0 my-3">
                 <h4 class="mb-3">Layanan Kami</h4>
-                <p>Navigasi</p>
-                <p>Satelit</p>
+                @php
+                    $layanans = App\Models\Layanan::where('status', 1)->get();
+                @endphp
+                @foreach ($layanans as $layanan)
+                    <p><a href="{{ route('layanan-kami') }}#{{ $layanan->title }}" class="text-white">{{ $layanan->title }}</a></p>
+                @endforeach
             </div>
             <div class="col-md-2 col-sm-5 col-12 text-sm-start text-center my-md-0 my-3">
                 <h4 class="mb-3">Produk</h4>
-                <p>Thuraya</p>
-                <p>Samyung</p>
-                <p>Koden</p>
-                <p>Iridium</p>
-                <p>Starlink</p>
-                <p>Hytera</p>
+                @php
+                    $produks = App\Models\Produk::where('status', 1)->get();
+                @endphp
+                @foreach ($produks as $produk)
+                    <p><a href="{{ route('detail.produk', Crypt::encrypt($produk->id)) }}" class="text-white">{{ $produk->nama }}</a></p>
+                @endforeach
             </div>
             <div class="col-md-4 col-sm-7 col-10 my-md-0 my-3">
                 {{-- <div class="input-group mb-3">
