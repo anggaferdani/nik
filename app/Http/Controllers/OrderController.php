@@ -77,7 +77,7 @@ class OrderController extends Controller
                     ]);
                 }
 
-                Keranjang::truncate();
+                Keranjang::where('user_id', Auth::id())->delete();
 
                 return back()->with('success', 'Pesanan berhasil dibuat. Check order history.');
             }

@@ -242,6 +242,7 @@
         if (confirm('Apakah anda yakin ingin menghapus semuanya?')) {
             var form = document.getElementById('orderForm');
             form.action = "{{ route('clear-keranjang') }}";
+            form.method = 'GET';
             form.submit();
         }
     });
