@@ -40,7 +40,7 @@ Route::middleware(['user'])->group(function () {
     Route::get('/create-order', [OrderController::class,'view']);
     Route::get('/order-history', [OrderController2::class,'history'])->name('orderhistory');
     Route::get('/keranjang', [KeranjangController::class,'index'])->name('keranjang');
-    Route::post('/keranjang/clear', [KeranjangController::class, 'clear_all'])->name('clear-keranjang');
+    Route::get('/keranjang/clear', [KeranjangController::class, 'clear_all'])->name('clear-keranjang');
     Route::get('/keranjang/delete/{id}', [KeranjangController::class,'clear_one'])->name('clear.one.keranjang');
     Route::post('/submit-keranjang/{id}', [KeranjangController::class,'submit_keranjang'])->name('post.submit.keranjang');
     Route::get('/submit-keranjang/{id}', [KeranjangController::class,'get_submit_keranjang'])->name('get.submit.keranjang');
