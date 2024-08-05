@@ -1,10 +1,10 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
-        <img src="{{ asset('Images/1718255506986.jpg') }}" class="img-fluid" width="130" style="" alt="">
+        <img src="{{ asset('logo.png') }}" class="img-fluid" width="130" style="" alt="">
       </div>
       <div class="sidebar-brand sidebar-brand-sm">
-        <img src="{{ asset('Images/1718255506986.jpg') }}" class="img-fluid" width="" style="" alt="">
+        <img src="{{ asset('logo.png') }}" class="img-fluid" width="" style="" alt="">
       </div>
       <ul class="sidebar-menu">
           {{-- <li class="{{ request()->routeIs('promosi') ? 'active' : '' }}"><a href="{{route('promosi')}}"><i class="fas fa-tags"></i><span>Promo Produk</span></a></li> --}} 
