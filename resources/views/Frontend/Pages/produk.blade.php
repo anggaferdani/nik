@@ -39,8 +39,7 @@
                 <div class="border-cyan p-4 text-white d-flex justify-content-center">
                     <div class="gambar-layanan">
                         <div class="image-wrapper-cyan text-center">
-                            <div class="d-flex justify-content-center">
-                                <img class="blur-bottom w-50" src="/produk/file/{{ $item->file }}" alt="">
+                            <div class="d-flex justify-content-center" style="background: url('/produk/file/{{ $item->file }}'); height: 350px; background-size: cover; background-position: center;">
                             </div>
                         </div>
                         <div class="text-center">
