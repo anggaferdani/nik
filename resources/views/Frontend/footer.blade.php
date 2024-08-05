@@ -9,7 +9,7 @@
     <div class="container">
         <div class="footer-top d-grid d-sm-flex justify-content-sm-between justify-content-center align-items-center">
             <a href="#" class="text-center mb-3 mb-sm-0">
-                <img src="{{asset('../Images/logonik.png')}}" alt="">
+                <img src="{{asset('logo.png')}}" alt="" width="140">
             </a>
             <div class="follow-us d-flex align-items-center gap-4">
                 <p class="text-white">Follow Us:</p>
