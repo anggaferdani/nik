@@ -35,7 +35,7 @@
                         <div class="text-white text-lg-start text-center">
                             <h2 class="my-3">{{$data->nama}}</h2>
                             <p class="fw-200 mb-3">{!! $data->deskripsi !!}</p>
-                            <a href="{{ route('get.submit.keranjang', $data->id) }}" class="btn btn-primary rounded-pill px-4">Add to cart</a>
+                            <a href="{{ route('get.submit.keranjang', $data->id) }}" class="btn btn-primary rounded-pill px-4 mt-3">Add to cart</a>
                         </div>
                     </div>
                 </div>

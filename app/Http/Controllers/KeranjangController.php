@@ -59,7 +59,7 @@ class KeranjangController extends Controller
 
             DB::commit();
 
-            return response()->json(['success' => 'Product deleted successfully']);
+            return back()->with('success', 'Barang berhasil dihapus.');
 
         } catch (\Throwable $th) {
 

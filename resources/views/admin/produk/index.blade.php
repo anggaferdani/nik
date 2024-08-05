@@ -85,7 +85,7 @@
           </div>
           <div class="mb-3">
             <label class="form-label required">Deskripsi</label>
-            <textarea class="form-control" name="deskripsi" rows="6" placeholder="Deskripsi"></textarea>
+            <textarea class="form-control summernote-simple" name="deskripsi" rows="6" placeholder="Deskripsi"></textarea>
             @error('deskripsi')<div class="text-danger">{{ $message }}</div>@enderror
           </div>
           <div class="mb-3">
@@ -139,7 +139,7 @@
           </div>
           <div class="mb-3">
             <label class="form-label required">Deskripsi</label>
-            <textarea class="form-control" name="deskripsi" rows="6" placeholder="Deskripsi">{{ $produk->deskripsi }}</textarea>
+            <textarea class="form-control summernote-simple" name="deskripsi" rows="6" placeholder="Deskripsi">{{ $produk->deskripsi }}</textarea>
             @error('deskripsi')<div class="text-danger">{{ $message }}</div>@enderror
           </div>
           <div class="mb-3">

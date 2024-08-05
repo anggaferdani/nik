@@ -45,7 +45,7 @@
                                             <div class="button ms-3 plusButton" data-id="{{ $keranjang->id }}" data-produk-nama="{{ $keranjang->produk->nama }}"><i class="fa-solid fa-plus"></i></div>
                                         </div>
 
-                                        <button class="deleteProductButton" type="button" data-id="{{ $keranjang->id }}" data-produk-nama="{{ $keranjang->produk->nama }}" style="background: none; border: 2px solid hsla(358, 86%, 45%); color: hsla(358, 86%, 45%); border-radius: 20px; padding-inline: 1rem">Hapus</button>
+                                        <a href="{{ route('clear.one.keranjang', $keranjang->id) }}" style="background: none; border: 2px solid hsla(358, 86%, 45%); color: hsla(358, 86%, 45%); border-radius: 20px; padding-inline: 1rem">Hapus</a>
                                     </div>
                                 </label>
                             </div>
@@ -214,29 +214,29 @@
     });
 
 
-    $(document).on('click', '.deleteProductButton', function() {
-        var productId = $(this).data('id');
-        var productName = $(this).data('produk-nama');
-        var button = $(this);
+    // $(document).on('click', '.deleteProductButton', function() {
+    //     var productId = $(this).data('id');
+    //     var productName = $(this).data('produk-nama');
+    //     var button = $(this);
 
-        if (confirm('Apakah Anda yakin ingin menghapus ' + productName + ' dari keranjang?')) {
-            $.ajax({
-                type: 'GET',
-                url: '/keranjang/delete/' + productId,
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function(response) {
-                    button.closest('.foreach-produk').remove();
-                    alert('Berhasil dihapus');
-                },
-                error: function(xhr) {
-                    console.error(xhr.responseText);
-                    alert('Failed to delete product. Please try again.');
-                }
-            });
-        }
-    });
+    //     if (confirm('Apakah Anda yakin ingin menghapus ' + productName + ' dari keranjang?')) {
+    //         $.ajax({
+    //             type: 'GET',
+    //             url: '/keranjang/delete/' + productId,
+    //             headers: {
+    //                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //             },
+    //             success: function(response) {
+    //                 button.closest('.foreach-produk').remove();
+    //                 alert('Berhasil dihapus');
+    //             },
+    //             error: function(xhr) {
+    //                 console.error(xhr.responseText);
+    //                 alert('Failed to delete product. Please try again.');
+    //             }
+    //         });
+    //     }
+    // });
 
     document.getElementById('deleteAllProduct').addEventListener('click', function() {
         if (confirm('Apakah anda yakin ingin menghapus semuanya?')) {
