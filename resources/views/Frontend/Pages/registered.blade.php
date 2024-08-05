@@ -19,7 +19,7 @@
             <div class="col-xxl-4 col-lg-6 col-sm-8 col-10">
                 <div class="form-login">
                     <h1 class="text-center mb-5">
-                        <img class="bg-login" src="{{ asset('logo.png') }}" alt="">
+                        <img class="bg-login" src="{{ asset('sat.png') }}" alt="">
                     </h1>
                     @if (session('alert'))
                     <div class="alert alert-{{session('alert')['type']}} alert-dismissible fade show" role="alert">
