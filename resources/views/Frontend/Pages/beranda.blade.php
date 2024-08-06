@@ -45,9 +45,9 @@
                     <div class="col-lg-4 col-10 my-lg-0 my-3">
                         <div class="border-cyan p-4 text-white">
                             <div class="d-flex align-items-center justify-content-between w-100  mb-3">
-                                <div class="text-start" id="judul-visi">
-                                    <h5 class="cyan fw-bold">VISI SATELIT</h5>
-                                    <h5 class="cyan fw-bold">STATION</h5>
+                                <div class="text-start" id="">
+                                    <h3 class="cyan fw-bold">VISI SATELIT</h3>
+                                    <h3 class="cyan fw-bold">STATION</h3>
                                 </div>
                                 <img class="rotate h-25" src="{{ asset('Images/panah.png')}}" alt="">
                             </div>
@@ -73,9 +73,9 @@
                         </div>
                         <div class="grid-visi-satelit">
                             <div class="p-3 text-white">
-                                <div class="" id="judul-misi">
-                                    <h5 class="cyan fw-bold text-start">MISI SATELIT</h5>
-                                    <h5 class="cyan fw-bold text-center">STATION</h5>
+                                <div class="" id="">
+                                    <h3 class="cyan fw-bold text-end">MISI SATELIT</h3>
+                                    <h3 class="cyan fw-bold text-end">STATION</h3>
                                 </div>
                                 <div class="d-flex justify-content-end w-100 mt-2">
                                     <img src="{{ asset('Images/panah.png')}}" alt="">
