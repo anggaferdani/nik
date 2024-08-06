@@ -41,7 +41,62 @@
                     </div>
                 </div>
 
-                <div class="row justify-content-center" id="visi">
+
+                <div class="row g-4 py-5">
+                    <div class="col-md-4">
+                        <div class="border-cyan p-4">
+                            <div class="d-flex mb-3">
+                                <div class="fs-3 fw-bold lh-1 cyan">VISI SATELIT STATION</div>
+                                <img class="rotate h-25" src="{{ asset('Images/panah.png')}}" alt="">
+                            </div>
+                            <div class="text-white">{{ $companyProfile->visi }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row g-4">
+                            <div class="col-md-4 order-md-2">
+                                <div class="p-4">
+                                    <div class="fs-3 fw-bold lh-1 cyan text-end mb-3">MISI SATELIT STATION</div>
+                                    <div class="d-flex justify-content-end">
+                                        <img class="w-30 mb-3" src="{{ asset('Images/panah.png')}}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 order-md-1">
+                                <div class="border-cyan p-4">
+                                    <img class="w-30 mb-3" src="{{ asset('Images/panah.png')}}" alt="">
+                                    <div class="text-white text-end fw-bold fs-6 mb-5">GOOD SOLUTION</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 order-md-2">
+                                <div class="border-cyan p-4">
+                                    <img class="w-30 mb-3" src="{{ asset('Images/panah.png')}}" alt="">
+                                    <div class="text-white text-end fw-bold fs-6 mb-5">CUSTOMER FIRST</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 order-md-4">
+                                <div class="border-cyan p-4">
+                                    <img class="w-30 mb-3" src="{{ asset('Images/panah.png')}}" alt="">
+                                    <div class="text-white text-end fw-bold fs-6 mb-5">SUSTAINABLE DEVELOPMENT</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 order-md-5">
+                                <div class="border-cyan p-4">
+                                    <img class="w-30 mb-3" src="{{ asset('Images/panah.png')}}" alt="">
+                                    <div class="text-white text-end fw-bold fs-6 mb-5">LOCAL MARKET LEADER</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 order-md-6">
+                                <div class="border-cyan p-4">
+                                    <img class="w-30 mb-3" src="{{ asset('Images/panah.png')}}" alt="">
+                                    <div class="text-white text-end fw-bold fs-6 mb-5">PARTNERSHIP</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- <div class="row justify-content-center" id="visi">
                     <div class="col-lg-4 col-10 my-lg-0 my-3">
                         <div class="border-cyan p-4 text-white">
                             <div class="d-flex align-items-center justify-content-between w-100  mb-3">
@@ -51,7 +106,7 @@
                                 </div>
                                 <img class="rotate h-25" src="{{ asset('Images/panah.png')}}" alt="">
                             </div>
-                            <p class="fw-200">{{ $companyProfile->visi }}</p>
+                            <p class="fw-200"></p>
                         </div>
                     </div>
                     <div class="col-lg-8 col-10" id="grid-second-content">
@@ -107,7 +162,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
