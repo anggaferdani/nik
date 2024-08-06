@@ -17,10 +17,6 @@
                 <h3 class="w-40 fw-bold my-3">{{ $companyProfile->title }}</h3>
                 <p class="w-30">{{ $companyProfile->subtitle }}</p>
             </div>
-            <div class="button d-flex justify-content-sm-start justify-content-center gap-3 mt-3">
-                <a href=""><button class="btn-nik rgb-red text-white" type="submit">Lorem ipsum.</button></a>
-                <a href=""><button class="btn-nik rgb-blue text-white" type="submit">Lorem ipsum.</button></a>
-            </div>
         </div>
     </div>
 
@@ -153,10 +149,6 @@
                 <div class="text-starlink text-white">
                     <h1>STARLINK</h1>
                     <p>Produk terbaru dari STARLINK tersedia di kami</p>
-                </div>
-                <div class="button d-flex gap-3 mt-3">
-                    <a href=""><button class="btn-nik rgb-red text-white" type="submit">Lorem ipsum.</button></a>
-                    <a href=""><button class="btn-nik rgb-blue text-white" type="submit">Lorem ipsum.</button></a>
                 </div>
             </div>
         </div>
