@@ -23,39 +23,39 @@
             Jelajahi seluruh produk
         </h1>
         <div class="option-2 my-4">
-            <div class="optional">
-                <button class="btn btn-option rgb-red" data-kategori="all" type="button">Semua</button>
+            <form action="{{ route('produk-kami') }}" method="GET" class="optional">
+                <button class="btn btn-option {{ request('kategori') === 'all' ? 'rgb-red' : '' }}" name="kategori" value="all" type="submit">Semua</button>
                 @foreach ($kategori as $item)
-                <button class="btn btn-option" data-kategori="{{ $item->kategori }}" type="button">{{ $item->kategori }}</button>
+                    <button class="btn btn-option {{ request('kategori') === $item->kategori ? 'rgb-red' : '' }}" name="kategori" value="{{ $item->kategori }}" type="submit">{{ $item->kategori }}</button>
                 @endforeach
-            </div>
+            </form>
         </div>
     </div>
 
     <div id="fifth-content" class="py-4 container">
         <div class="parent-grid-fifth">
             @foreach ($produk as $item)
-            <div class="grid-fifth" data-kategori="{{ $item->kategori_produk->kategori }}">
-                <div class="border-cyan p-4 text-white d-flex justify-content-center">
-                    <div class="gambar-layanan">
-                        <div class="image-wrapper-cyan text-center">
-                            <div class="d-flex justify-content-center" style="background: url('/produk/file/{{ $item->file }}'); height: 350px; background-size: cover; background-position: center;">
+                <div class="grid-fifth" data-kategori="{{ $item->kategori_produk->kategori }}">
+                    <div class="border-cyan p-4 text-white d-flex justify-content-center">
+                        <div class="gambar-layanan">
+                            <div class="image-wrapper-cyan text-center">
+                                <div class="d-flex justify-content-center" style="background: url('/produk/file/{{ $item->file }}'); height: 350px; background-size: cover; background-position: center;">
+                                </div>
                             </div>
-                        </div>
-                        <div class="text-center">
-                            <h1>{{ $item->nama }}</h1>
-                            <h3>{{ $item->kategori_produk->kategori }}</h3>
-                            <div class="button d-flex justify-content-center gap-3 mt-3">
-                                <a href="/detail-produk/{{$item->encryptId}}"><button class="btn-pelajari solid-blue text-white" type="submit">Pelajari</button></a>
-                                <button class="btn-beli border-white" onclick="handleModal({
-                                    productId: '{{ $item->encryptId }}',
-                                    productName: '{{ $item->nama }}'
-                                })">Add to cart</button>
+                            <div class="text-center">
+                                <h1>{{ $item->nama }}</h1>
+                                <h3>{{ $item->kategori_produk->kategori }}</h3>
+                                <div class="button d-flex justify-content-center gap-3 mt-3">
+                                    <a href="/detail-produk/{{$item->encryptId}}"><button class="btn-pelajari solid-blue text-white" type="submit">Pelajari</button></a>
+                                    <button class="btn-beli border-white" onclick="handleModal({
+                                        productId: '{{ $item->encryptId }}',
+                                        productName: '{{ $item->nama }}'
+                                    })">Add to cart</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             @endforeach
         </div>
     </div>
@@ -129,7 +129,7 @@
         }
     </script>
 
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('.btn-option').on('click', function() {
                 // Hapus class rgb-red dari semua tombol
@@ -149,7 +149,7 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 
 
 

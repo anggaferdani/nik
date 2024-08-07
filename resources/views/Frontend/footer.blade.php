@@ -54,12 +54,12 @@
                 @endforeach
             </div>
             <div class="col-md-2 col-sm-5 col-12 text-sm-start text-center my-md-0 my-3">
-                <h4 class="mb-3">Produk</h4>
+                <h4 class="mb-3">Kategori</h4>
                 @php
-                    $produks = App\Models\Produk::where('status', 1)->get();
+                    $kategoriProduks = App\Models\KategoriProduk::where('aktif', 1)->get();
                 @endphp
-                @foreach ($produks as $produk)
-                    <p><a href="{{ route('detail.produk', Crypt::encrypt($produk->id)) }}" class="text-white">{{ $produk->nama }}</a></p>
+                @foreach ($kategoriProduks as $kategoriProduk)
+                    <p><a href="{{ route('produk-kami', ['kategori' => $kategoriProduk->kategori]) }}" class="text-white">{{ $kategoriProduk->kategori }}</a></p>
                 @endforeach
             </div>
             <div class="col-md-4 col-sm-7 col-10 my-md-0 my-3">

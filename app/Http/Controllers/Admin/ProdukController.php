@@ -145,21 +145,35 @@ class ProdukController extends Controller
         return response()->json(['success'=>'Gambar Berhasil Dihapus.']);
     }
 
-    public function frontend_produk(){
-        $kategori = KategoriProduk::with('produk')->where('aktif',1)->get();
-        $produk = Produk::with('kategori_produk')->where('status', 1)->get();
+    public function frontend_produk(Request $request) {
+        $kategoriFilter = $request->input('kategori');
+    
+        $kategori = KategoriProduk::with('produk')->where('aktif', 1)->get();
+    
+        $produkQuery = Produk::with('kategori_produk')->where('status', 1);
+    
+        if ($kategoriFilter && $kategoriFilter !== 'all') {
+            $produkQuery->whereHas('kategori_produk', function($query) use ($kategoriFilter) {
+                $query->where('kategori', $kategoriFilter);
+            });
+        }
+    
+        $produk = $produkQuery->get();
+    
         foreach ($produk as $key) {
             $key->encryptId = Crypt::encrypt($key->id);
         }
+    
         $companyProfile = CompanyProfile::first();
         $layanans = Layanan::where('status', 1)->get();
         $partners = Partner::where('status', 1)->get();
-        return view('Frontend.Pages.produk',compact(
+    
+        return view('Frontend.Pages.produk', compact(
             'produk',
             'kategori',
             'companyProfile',
             'layanans',
-            'partners',
+            'partners'
         ));
     }
 
