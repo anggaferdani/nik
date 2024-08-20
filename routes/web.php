@@ -82,7 +82,7 @@ Route::middleware(['auth','admin'])->group(function () {
             Route::resource('partner', PartnerController::class);
             Route::resource('produk', ProdukController2::class);
             Route::resource('order', OrderController2::class);
-            Route::get('order/verify/{id}', [OrderController::class, 'verify'])->name('order.verify');
+            Route::get('order/verify/{id}', [OrderController2::class, 'verify'])->name('order.verify');
         });
     });
 });
