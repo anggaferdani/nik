@@ -7,6 +7,7 @@ use App\Models\Keranjang;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -25,6 +26,19 @@ class OrderController extends Controller
             $order->update([
                 'status' => 'success',
             ]);
+
+            $mail = [
+                'to' => $order->email,
+                'mail' => 'order@satstation.co.id',
+                'from' => 'SAT STATION',
+                'subject' => 'Pesanan anda telah terverifikasi.',
+            ];
+
+            Mail::send('Frontend.emails.order-terverifikasi', $mail, function($message) use ($mail){
+                $message->to($mail['to'])
+                ->from($mail['mail'], $mail['from'])
+                ->subject($mail['subject']);
+            });
 
             return back()->with('success', 'Success');
         } catch (\Throwable $th) {
@@ -77,9 +91,32 @@ class OrderController extends Controller
                     ]);
                 }
 
-                Keranjang::where('user_id', Auth::id())->delete();
+                $Keranjang = Keranjang::where('user_id', Auth::id())->delete();
+
+                if ($Keranjang) {
+                    $orderItems = OrderItem::where('order_id', $order->id)->get();
+
+                $mail = [
+                    'to' => $order->email,
+                    'mail' => 'order@satstation.co.id',
+                    'from' => 'SAT STATION',
+                    'subject' => 'Detail Pembelian',
+                    'nama' => $order->nama,
+                    'email' => $order->email,
+                    'no_telp' => $order->no_telp,
+                    'alamat' => $order->alamat,
+                    'status' => $order->status,
+                    'orderItems' => $orderItems,
+                ];
+
+                Mail::send('Frontend.emails.order', $mail, function($message) use ($mail){
+                    $message->to($mail['to'])
+                    ->from($mail['mail'], $mail['from'])
+                    ->subject($mail['subject']);
+                });
 
                 return back()->with('success', 'Pesanan berhasil dibuat. Check order history.');
+                }
             }
     
         } catch (\Throwable $th) {

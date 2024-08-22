@@ -41,7 +41,7 @@
                                     <div class="bawah-judul d-flex justify-content-end align-items-center w-100 gap-5">
                                         <div class="quantity">
                                             <div class="button me-3 minusButton" data-id="{{ $keranjang->id }}" data-produk-nama="{{ $keranjang->produk->nama }}"><i class="fa-solid fa-minus"></i></div>
-                                            <div class="quantityProduct">1</div>
+                                            <div class="quantityProduct" data-id="{{ $keranjang->produk_id }}">1</div>
                                             <div class="button ms-3 plusButton" data-id="{{ $keranjang->id }}" data-produk-nama="{{ $keranjang->produk->nama }}"><i class="fa-solid fa-plus"></i></div>
                                         </div>
 
@@ -138,7 +138,7 @@
             let quantities = [];
 
             $('.foreach-produk').each(function() {
-                let productId = $(this).find('.deleteProductButton').data('id');
+                let productId = $(this).find('.quantityProduct').data('id');
                 let quantity = $(this).find('.quantityProduct').text().trim();
 
                 productIds.push(productId);
