@@ -62,12 +62,6 @@
             <td bgcolor="#ffffff" align="left">
               <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                  <td colspan="2"
-                    style="padding-left:15px; padding-right:15px; padding-bottom:15px; padding-top:15px; font-family: Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 400; line-height: 25px;">
-                    <p>Terima kasih telah berbelanja dengan kami Berikut adalah detail pesanan Anda</p>
-                  </td>
-                </tr>
-                <tr>
                   <th align="left" valign="top"
                     style="padding-left:15px; padding-right:15px;padding-bottom:0px; font-family: Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 400; line-height: 25px;">
                     Nama</th>
@@ -155,12 +149,6 @@
                         </td>
                       </tr>
                     </table>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="2"
-                    style="padding-left:15px; padding-right:15px; padding-bottom:15px; padding-top:15px; font-family: Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 400; line-height: 25px;">
-                    <p>Pesanan Anda sedang diproses, dan kami akan segera mengirimkan informasi pengiriman. Jika ada pertanyaan atau Anda membutuhkan bantuan, jangan ragu untuk menghubungi kami. Sekali lagi, terima kasih atas kepercayaan Anda.</p>
                   </td>
                 </tr>
               </table>
