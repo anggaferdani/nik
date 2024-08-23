@@ -49,7 +49,7 @@
         <table border="0" cellpadding="0" cellspacing="0" width="480">
           <tr>
             <td align="center" valign="top" style="padding: 40px 10px 40px 10px;">
-              <img src="{{ asset('Images/logonik-hd.png') }}" alt="">
+              <img src="{{ $message->embed('Images/logonik-hd.png') }}" alt="">
             </td>
           </tr>
         </table>
@@ -61,6 +61,14 @@
           <tr>
             <td bgcolor="#ffffff" align="left">
               <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <th align="left" valign="top"
+                    style="padding-left:15px; padding-right:15px;padding-bottom:0px; font-family: Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 400; line-height: 25px;">
+                    ID</th>
+                  <td align="left" valign="top"
+                    style="padding-left:15px;padding-right:30px; padding-bottom:0px;font-family: Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 400; line-height: 25px;">
+                    {{ $id }}</td>
+                </tr>
                 <tr>
                   <th align="left" valign="top"
                     style="padding-left:15px; padding-right:15px;padding-bottom:0px; font-family: Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 400; line-height: 25px;">
@@ -150,6 +158,13 @@
                       </tr>
                     </table>
                   </td>
+                </tr>
+                <tr>
+                  <th align="left" valign="top"
+                    style="padding-left:15px; padding-right:15px;padding-bottom:0px; font-family: Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 400; line-height: 25px;">
+                    Bukti Bayar</th>
+                  <td align="left" valign="top"
+                    style="padding-left:15px;padding-right:30px; padding-bottom:0px;font-family: Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 400; line-height: 25px;"><img src="{{ $message->embed($buktiBayar) }}" alt=""></td>
                 </tr>
               </table>
             </td>
