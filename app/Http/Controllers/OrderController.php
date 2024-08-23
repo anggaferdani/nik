@@ -27,19 +27,6 @@ class OrderController extends Controller
                 'status' => 'success',
             ]);
 
-            $mail = [
-                'to' => $order->email,
-                'mail' => 'order@satstation.co.id',
-                'from' => 'SAT STATION',
-                'subject' => 'Pesanan anda telah terverifikasi.',
-            ];
-
-            Mail::send('Frontend.emails.order-terverifikasi', $mail, function($message) use ($mail){
-                $message->to($mail['to'])
-                ->from($mail['mail'], $mail['from'])
-                ->subject($mail['subject']);
-            });
-
             return back()->with('success', 'Success');
         } catch (\Throwable $th) {
             return back()->with('error', $th->getMessage());
@@ -97,7 +84,7 @@ class OrderController extends Controller
                     $orderItems = OrderItem::where('order_id', $order->id)->get();
 
                 $mail = [
-                    'to' => $order->email,
+                    'to' => 'order@satstation.co.id',
                     'mail' => 'order@satstation.co.id',
                     'from' => 'SAT STATION',
                     'subject' => 'Detail Pembelian',
