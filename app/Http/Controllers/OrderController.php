@@ -78,22 +78,21 @@ class OrderController extends Controller
                     ]);
                 }
 
-                $Keranjang = Keranjang::where('user_id', Auth::id())->delete();
-
-                if ($Keranjang) {
-                    $orderItems = OrderItem::where('order_id', $order->id)->get();
+                $orderItems = OrderItem::where('order_id', $order->id)->get();
 
                 $mail = [
                     'to' => 'order@satstation.co.id',
                     'mail' => 'order@satstation.co.id',
                     'from' => 'SAT STATION',
-                    'subject' => 'Detail Pembelian',
+                    'subject' => 'Detail Pembelian - Order ID: ' . $order->id,
+                    'id' => $order->id,
                     'nama' => $order->nama,
                     'email' => $order->email,
                     'no_telp' => $order->no_telp,
                     'alamat' => $order->alamat,
                     'status' => $order->status,
                     'orderItems' => $orderItems,
+                    'buktiBayar' => 'bukti-bayar/' . $order->bukti_bayar,
                 ];
 
                 Mail::send('Frontend.emails.order', $mail, function($message) use ($mail){
@@ -102,8 +101,9 @@ class OrderController extends Controller
                     ->subject($mail['subject']);
                 });
 
+                $Keranjang = Keranjang::where('user_id', Auth::id())->delete();
+
                 return back()->with('success', 'Pesanan berhasil dibuat. Check order history.');
-                }
             }
     
         } catch (\Throwable $th) {
