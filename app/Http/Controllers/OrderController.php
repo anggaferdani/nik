@@ -81,7 +81,7 @@ class OrderController extends Controller
                 $orderItems = OrderItem::where('order_id', $order->id)->get();
 
                 $mail = [
-                    'to' => 'order@satstation.co.id',
+                    'to' => 'fikrihasani471@outlook.com',
                     'mail' => 'order@satstation.co.id',
                     'from' => 'SAT STATION',
                     'subject' => 'Detail Pembelian - Order ID: ' . $order->id,
