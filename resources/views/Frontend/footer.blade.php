@@ -103,9 +103,9 @@
         <div class="hr-white"></div>
         <div class="footer-middle row align-items-start">
             <h5 class="text-white mb-3" style="white-space: nowrap;">Klien Kami :</h5>
-            <div class="our-partners">
+            <div class="partner" style="width: 100%;">
                 @foreach ($partners as $partner)
-                <img src="/partner/logo/{{ $partner->logo }}" class="img-fluid" alt="">
+                    <img src="/partner/logo/{{ $partner->logo }}" class="img-fluid" alt="">
                 @endforeach
             </div>
         </div>
