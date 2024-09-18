@@ -64,12 +64,15 @@ class ProdukController extends Controller
                 'deskripsi' => 'required',
                 'harga' => 'required',
             ]);
+
+            $h = preg_replace('/\D/', '', $request->harga);
+            $harga = trim($h);
     
             $array = [
                 'kategori_produk_id' => $request['kategori_produk_id'],
                 'nama' => $request['nama'],
                 'deskripsi' => $request['deskripsi'],
-                'harga' => $request['harga'],
+                'harga' => $harga,
             ];
 
             if ($request->hasFile('file')) {
