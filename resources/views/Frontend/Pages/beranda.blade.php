@@ -225,7 +225,7 @@
                                     <h3>{{ $item->kategori_produk->kategori }}</h3>
                                     <div class="button d-flex justify-content-center gap-3 mt-3">
                                         <a href="{{ Route('detail.produk', $item->encryptId) }}">
-                                            <button class="btn-pelajari solid-blue text-white" type="submit">Detail</button>
+                                            <button class="btn-pelajari solid-blue text-white" type="submit">Pelajari</button>
                                         </a>
 
                                         <button class="btn-beli border-white" onclick="handleModal({

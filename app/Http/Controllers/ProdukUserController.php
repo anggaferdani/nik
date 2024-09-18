@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Models\Produk;
 use App\Models\Layanan;
@@ -16,9 +16,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use App\Http\Controllers\Admin\ProdukController;
 
-class ProdukController extends Controller
+class ProdukUserController extends Controller
 {
     public function produk(){
         $kategori = KategoriProduk::where('aktif',1)->get();

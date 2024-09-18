@@ -29,7 +29,7 @@
                               <td>{{ ($produks->currentPage() - 1) * $produks->perPage() + $loop->iteration }}</td>
                               <td>{{ $produk->nama }}</td>
                               <td>{{ $produk->kategori_produk->kategori }}</td>
-                              <td>Rp. {{ number_format($produk->harga, 0, ',', '.') }}</td>
+                              <td>Rp. {{ number_format((float) $produk->harga, 0, ',', '.') }}</td>
                               <td><img src="/produk/file/{{ $produk->file }}" class="img-fluid" width="100" alt=""></td>
                               <td>
                                 <form action="{{ route('admin.produk.destroy', $produk->id) }}" method="POST">
