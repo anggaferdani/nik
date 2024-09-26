@@ -221,8 +221,9 @@
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <h1>{{ $item->nama }}</h1>
-                                    <h3>{{ $item->kategori_produk->kategori }}</h3>
+                                    <h2 class="mb-2">{{ $item->nama }}</h2>
+                                    <h5 class="mb-2">{{ $item->kategori_produk->kategori }}</h5>
+                                    <h3>Rp. {{ number_format($item->harga, 0, ',', '.') }}</h3>
                                     <div class="button d-flex justify-content-center gap-3 mt-3">
                                         <a href="{{ Route('detail.produk', $item->encryptId) }}">
                                             <button class="btn-pelajari solid-blue text-white" type="submit">Pelajari</button>
