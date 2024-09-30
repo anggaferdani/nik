@@ -20,7 +20,7 @@ class LayananController extends Controller
     public function store(Request $request) {
         try {
             $request->validate([
-                'file' => 'required',
+                'file' => 'required|file|mimes:png,jpg,jpeg',
                 'title' => 'required',
                 'description' => 'required',
                 'category' => 'required',
@@ -50,6 +50,7 @@ class LayananController extends Controller
             $layanan = Layanan::find($id);
     
             $request->validate([
+                'file' => 'nullable|file|mimes:png,jpg,jpeg',
                 'title' => 'required',
                 'description' => 'required',
                 'category' => 'required',
